@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C239DC03-56C7-4488-9C54-8B7860AE5E23}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Inventory_Manager</RootNamespace>
+    <AssemblyName>Inventory Manager</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Green_Transparent.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddBoxingEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddBoxingEvent.Designer.cs">
+      <DependentUpon>AddBoxingEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddDOT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDOT.Designer.cs">
+      <DependentUpon>AddDOT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEventLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEventLocation.Designer.cs">
+      <DependentUpon>AddEventLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddRepository.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRepository.Designer.cs">
+      <DependentUpon>AddRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddShipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddShipment.Designer.cs">
+      <DependentUpon>AddShipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddTrailer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTrailer.Designer.cs">
+      <DependentUpon>AddTrailer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckInEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckInEvent.Designer.cs">
+      <DependentUpon>CheckInEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DBCon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DBCon.Designer.cs">
+      <DependentUpon>DBCon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DBLink.cs" />
+    <Compile Include="LineBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LineBox.Designer.cs">
+      <DependentUpon>LineBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LineRice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LineRice.Designer.cs">
+      <DependentUpon>LineRice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LineSoy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LineSoy.Designer.cs">
+      <DependentUpon>LineSoy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LineVeggie.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LineVeggie.Designer.cs">
+      <DependentUpon>LineVeggie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LineVitamin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LineVitamin.Designer.cs">
+      <DependentUpon>LineVitamin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main Menu.Designer.cs">
+      <DependentUpon>Main Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Param.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Query.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Query.Designer.cs">
+      <DependentUpon>Query.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Styler.cs" />
+    <Compile Include="TrackEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrackEvent.Designer.cs">
+      <DependentUpon>TrackEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrackFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrackFood.Designer.cs">
+      <DependentUpon>TrackFood.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddBoxingEvent.resx">
+      <DependentUpon>AddBoxingEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddDOT.resx">
+      <DependentUpon>AddDOT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEventLocation.resx">
+      <DependentUpon>AddEventLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddRepository.resx">
+      <DependentUpon>AddRepository.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddShipment.resx">
+      <DependentUpon>AddShipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddTrailer.resx">
+      <DependentUpon>AddTrailer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckInEvent.resx">
+      <DependentUpon>CheckInEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DBCon.resx">
+      <DependentUpon>DBCon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LineBox.resx">
+      <DependentUpon>LineBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LineRice.resx">
+      <DependentUpon>LineRice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LineSoy.resx">
+      <DependentUpon>LineSoy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LineVeggie.resx">
+      <DependentUpon>LineVeggie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LineVitamin.resx">
+      <DependentUpon>LineVitamin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main Menu.resx">
+      <DependentUpon>Main Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Query.resx">
+      <DependentUpon>Query.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrackEvent.resx">
+      <DependentUpon>TrackEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrackFood.resx">
+      <DependentUpon>TrackFood.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\Fonts\desyrel.ttf" />
+    <None Include="Resources\Fonts\ITCKRIST.TTF" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data.mdf" />
+    <Content Include="Data_log.ldf">
+      <DependentUpon>Data.mdf</DependentUpon>
+    </Content>
+    <Content Include="Green_Transparent.ico" />
+    <Content Include="Resources\Buttons\Button_1.png" />
+    <Content Include="Resources\Buttons\Button_10.png" />
+    <Content Include="Resources\Buttons\Button_11.png" />
+    <Content Include="Resources\Buttons\Button_12.png" />
+    <Content Include="Resources\Buttons\Button_13.png" />
+    <Content Include="Resources\Buttons\Button_14.png" />
+    <Content Include="Resources\Buttons\Button_15.png" />
+    <Content Include="Resources\Buttons\Button_2.png" />
+    <Content Include="Resources\Buttons\Button_3.png" />
+    <Content Include="Resources\Buttons\Button_4.png" />
+    <Content Include="Resources\Buttons\Button_5.png" />
+    <Content Include="Resources\Buttons\Button_6.png" />
+    <Content Include="Resources\Buttons\Button_7.png" />
+    <Content Include="Resources\Buttons\Button_8.png" />
+    <Content Include="Resources\Buttons\Button_9.png" />
+    <Content Include="Resources\Buttons\Button_Cancel.ico" />
+    <Content Include="Resources\Icons\Red_Icon.ico" />
+    <Content Include="Resources\Images\Bar_Logo.jpg" />
+    <Content Include="Resources\Images\Bar_Logo_Transparent.png" />
+    <Content Include="Resources\Images\Blue_Transparent.png" />
+    <Content Include="Resources\Images\Blue_White.png" />
+    <Content Include="Resources\Images\Green_Transparent.png" />
+    <Content Include="Resources\Images\Green_White.png" />
+    <Content Include="Resources\Images\Hands_Logo.jpg" />
+    <Content Include="Resources\Images\Plain_Logo.jpg" />
+    <Content Include="Resources\Images\Plain_Logo_Subtitled.jpg" />
+    <Content Include="Resources\Images\Purple_Transparent.png" />
+    <Content Include="Resources\Images\Purple_White.png" />
+    <Content Include="Resources\Images\Red_Transparent.png" />
+    <Content Include="Resources\Images\Red_White.png" />
+    <Content Include="Resources\Images\World_Logo.jpg" />
+    <Content Include="Resources\Images\World_Logo_Transparent.png" />
+    <Content Include="Resources\Images\Yellow_Transparent.png" />
+    <Content Include="Resources\Images\Yellow_White.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
