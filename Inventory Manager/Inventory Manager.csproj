@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Green_Transparent.ico</ApplicationIcon>
+    <ApplicationIcon>KAHCIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -275,6 +275,7 @@
       <DependentUpon>Data.mdf</DependentUpon>
     </Content>
     <Content Include="Green_Transparent.ico" />
+    <Content Include="KAHCIcon.ico" />
     <Content Include="Resources\Buttons\Button_1.png" />
     <Content Include="Resources\Buttons\Button_10.png" />
     <Content Include="Resources\Buttons\Button_11.png" />
@@ -309,6 +310,7 @@
     <Content Include="Resources\Images\World_Logo_Transparent.png" />
     <Content Include="Resources\Images\Yellow_Transparent.png" />
     <Content Include="Resources\Images\Yellow_White.png" />
+    <None Include="Resources\logo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

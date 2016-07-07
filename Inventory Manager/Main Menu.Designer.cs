@@ -54,10 +54,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Inventory_Manager.Properties.Resources.World_Logo_Transparent;
-            this.pictureBox1.Location = new System.Drawing.Point(17, 417);
+            this.pictureBox1.Image = global::Inventory_Manager.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(85, 417);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(383, 176);
+            this.pictureBox1.Size = new System.Drawing.Size(315, 176);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
