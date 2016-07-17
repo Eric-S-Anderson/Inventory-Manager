@@ -13,8 +13,10 @@ namespace Inventory_Manager
         public static string conStart = "Data Source = (LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"";
         public static string conEnd = "\";Integrated Security=True;Connect Timeout=30";
         public static string conFile = "";
+        public static string restoreWarning = "ATTENTION\n\nThis action is not recoverable.\nPlease make sure that you have backed up the current\nversion of the database before proceeding.";
         public static DateTime lastBackupDate = DateTime.Today;
         public static bool askedForBackup = false;
+        public static bool backupReminder = true;
 
         public static void testConnection()
         {
@@ -37,21 +39,11 @@ namespace Inventory_Manager
         {
             try
             {
-                if (lastBackupDate < DateTime.Today.Subtract(TimeSpan.FromDays(7)))
+                if (lastBackupDate < DateTime.Today.Subtract(TimeSpan.FromDays(7)) && backupReminder)
                 {
                     if (MessageBox.Show("Your last backup was more than a week ago.  \nWould you like to perform a backup now?", applicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
-                        SaveFileDialog sfdBackup = new SaveFileDialog();
-
-                        sfdBackup.Filter = "Database Files|*.mdf";
-
-                        if (sfdBackup.ShowDialog() == DialogResult.OK)
-                        {
-                            File.Copy(conFile, sfdBackup.FileName);
-                            lastBackupDate = DateTime.Today;
-                            Styler.settings["lastbackup"] = lastBackupDate.ToShortDateString();
-                            Styler.saveSettings();
-                        }
+                        Styler.btnBackup_Click(null, null);
                     }
                 }
             }
@@ -158,6 +150,25 @@ namespace Inventory_Manager
             {
                 MessageBox.Show(ex.ToString(), applicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return new DataTable();
+            }
+        }
+
+        public static void dynamicAdminQuery(string query)
+        {
+            try
+            {
+                using (SqlConnection databaseConnection = new SqlConnection(getConnectionString()))
+                {
+                    databaseConnection.Open();
+                    SqlCommand databaseCommand = new SqlCommand(query);
+                    databaseCommand.Connection = databaseConnection;
+                    databaseCommand.ExecuteNonQuery();
+                    databaseConnection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), applicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

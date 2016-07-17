@@ -192,6 +192,8 @@ namespace Inventory_Manager
             mspDropLevelDatabase.DropDownItems.Add("Connection", null, btnConnection_Click);
             mspDropLevelDatabase.DropDownItems.Add("Backup", null, btnBackup_Click);
             mspDropLevelDatabase.DropDownItems.Add("Restore", null, btnRestore_Click);
+            mspDropLevelDatabase.DropDownItems.Add("Backup Reminders", null, btnBackupReminder_Click);
+            ((ToolStripMenuItem)mspDropLevelDatabase.DropDownItems[3]).Checked = DBLink.backupReminder;
 
             mspMidLevelTools.DropDownItems.Add(mspDropLevelDatabase);
             mspMidLevelTools.DropDownItems.Add("Manual Query", null, btnManualQuery_Click);
@@ -273,6 +275,16 @@ namespace Inventory_Manager
             {
                 DBLink.lastBackupDate = DateTime.Today;
                 settings.Add("lastbackup", DateTime.Today.ToShortDateString());
+            }
+
+            if (settings.ContainsKey("backupreminder"))
+            {
+                DBLink.backupReminder = Convert.ToBoolean(settings["backupreminder"]);
+            }
+            else
+            {
+                DBLink.backupReminder = true;
+                settings.Add("backupreminder", "true");
             }
 
             saveSettings();
@@ -418,17 +430,29 @@ namespace Inventory_Manager
             new frmDBCon().Show();
         }
 
-        private static void btnBackup_Click(object sender, EventArgs e)
+        public static void btnBackup_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfdBackup = new SaveFileDialog();
 
             sfdBackup.Filter = "Database Files|*.mdf";
+            sfdBackup.FileName = ("DBBackup_" + DateTime.Today.ToShortDateString()).Replace('/', '_');
 
             if (sfdBackup.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    File.Copy(DBLink.conFile, sfdBackup.FileName);
+                    DBLink.dynamicAdminQuery("USE master;" + 
+                        "ALTER DATABASE [" + DBLink.conFile + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;" + 
+                        "EXEC sp_detach_db '" + DBLink.conFile + "', 'true';");
+
+                    File.Copy(DBLink.conFile, sfdBackup.FileName, true);
+
+                    DBLink.dynamicAdminQuery("USE master;" +
+                        "ALTER DATABASE [" + DBLink.conFile + "] SET MULTI_USER;");
+
+                    settings["lastbackup"] = DateTime.Today.ToShortDateString();
+                    DBLink.lastBackupDate = DateTime.Today;
+                    saveSettings();
                 }
                 catch (Exception ex)
                 {
@@ -439,21 +463,40 @@ namespace Inventory_Manager
 
         private static void btnRestore_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofdRestore = new OpenFileDialog();
-
-            ofdRestore.Filter = "Database Files|*.mdf";
-
-            if (ofdRestore.ShowDialog() == DialogResult.OK)
+            if (MessageBox.Show(DBLink.restoreWarning, DBLink.applicationName, MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
-                try
+                OpenFileDialog ofdRestore = new OpenFileDialog();
+
+                ofdRestore.Filter = "Database Files| *.mdf";
+
+                if (ofdRestore.ShowDialog() == DialogResult.OK)
                 {
-                    File.Copy(ofdRestore.FileName, DBLink.conFile);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString(), DBLink.applicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    try
+                    {
+                        DBLink.dynamicAdminQuery("USE master;" +
+                        "ALTER DATABASE [" + DBLink.conFile + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;" +
+                        "EXEC sp_detach_db '" + DBLink.conFile + "', 'true';");
+
+                        File.Copy(ofdRestore.FileName, DBLink.conFile, true);
+
+                        DBLink.dynamicAdminQuery("USE master;" +
+                            "ALTER DATABASE [" + DBLink.conFile + "] SET MULTI_USER;");
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), DBLink.applicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
+        }
+
+        private static void btnBackupReminder_Click(object sender, EventArgs e)
+        {
+            DBLink.backupReminder = !DBLink.backupReminder;
+            settings["backupreminder"] = DBLink.backupReminder.ToString();
+            saveSettings();
+            ((ToolStripMenuItem)sender).Checked = DBLink.backupReminder;
         }
 
         private static void btnManualQuery_Click(object sender, EventArgs e)
