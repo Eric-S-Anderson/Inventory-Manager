@@ -11,7 +11,7 @@ namespace Inventory_Manager
         private static Form mainMenu;
         private DataSet resultSet;
         private string typeSelected = "";
-        private string printFileName = "FoodTrack.html";
+        private string printFileName = DBLink.appDataDirectory + "FoodTrack.html";
 
         public frmTrackFood(Form menuForm)
         {

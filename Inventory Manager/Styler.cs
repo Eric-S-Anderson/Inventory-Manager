@@ -10,16 +10,17 @@ namespace Inventory_Manager
     static class Styler
     {
         private static Form formBuffer;
-        private static string settingsFile = "Settings.txt";
+        private static string settingsFile = DBLink.appDataDirectory + "Settings.txt";
         public static Dictionary<string, string> settings = new Dictionary<string, string>(); 
         private static string fontName;
         private static int fontSize;
 
+        #region Style Functions
         public static void stylePage(Form styleForm)
         {
             formBuffer = styleForm;
             formBuffer.Icon = Icon.ExtractAssociatedIcon(Assembly.GetExecutingAssembly().Location);
-            if (!(formBuffer is frmAbout) && !(formBuffer is frmDBCon))
+            if (!(formBuffer is frmAbout) && !(formBuffer is frmDBCon) && !(formBuffer is frmPrintEvent))
             {
                 bool hasMenu = false;
 
@@ -195,7 +196,11 @@ namespace Inventory_Manager
             mspDropLevelDatabase.DropDownItems.Add("Backup Reminders", null, btnBackupReminder_Click);
             ((ToolStripMenuItem)mspDropLevelDatabase.DropDownItems[3]).Checked = DBLink.backupReminder;
 
+            ToolStripMenuItem mspDropLevelPrint = new ToolStripMenuItem("Print");
+            mspDropLevelPrint.DropDownItems.Add("Boxing Event", null, btnPrintEvent_Click);
+
             mspMidLevelTools.DropDownItems.Add(mspDropLevelDatabase);
+            mspMidLevelTools.DropDownItems.Add(mspDropLevelPrint);
             mspMidLevelTools.DropDownItems.Add("Manual Query", null, btnManualQuery_Click);
             mspMidLevelTools.DropDownItems.Add("Font", null, btnFont_Click);
 
@@ -209,12 +214,18 @@ namespace Inventory_Manager
             mspTopLevel.Items.Add(mspMidLevelHelp);
 
         }
+        #endregion
 
         #region Settings Functions
         public static void loadSettings()
         {
             if (!File.Exists(settingsFile))
             {
+                if (!Directory.Exists(DBLink.appDataDirectory))
+                {
+                    Directory.CreateDirectory(DBLink.appDataDirectory);
+                }
+
                 File.Create(settingsFile).Close();
             }
 
@@ -497,6 +508,12 @@ namespace Inventory_Manager
             settings["backupreminder"] = DBLink.backupReminder.ToString();
             saveSettings();
             ((ToolStripMenuItem)sender).Checked = DBLink.backupReminder;
+        }
+
+        private static void btnPrintEvent_Click(object sender, EventArgs e)
+        {
+            Form currentForm = getFormFromMenuItem(sender);
+            new frmPrintEvent(currentForm).Show();
         }
 
         private static void btnManualQuery_Click(object sender, EventArgs e)

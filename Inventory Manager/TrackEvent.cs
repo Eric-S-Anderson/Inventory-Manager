@@ -11,7 +11,7 @@ namespace Inventory_Manager
         private static Form mainMenu;
         private DataSet resultSet;
         private DataTable locationSet = new DataTable();
-        private string printFileName = "EventTrack.html";
+        private string printFileName = DBLink.appDataDirectory + "EventTrack.html";
 
         public frmTrackEvent(Form menuForm)
         {

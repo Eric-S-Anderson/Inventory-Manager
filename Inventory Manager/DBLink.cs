@@ -17,6 +17,7 @@ namespace Inventory_Manager
         public static DateTime lastBackupDate = DateTime.Today;
         public static bool askedForBackup = false;
         public static bool backupReminder = true;
+        public static string appDataDirectory = "C:\\Users\\" + Environment.UserName + "\\AppData\\Local\\KAHIM\\";
 
         public static void testConnection()
         {
