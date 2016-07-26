@@ -21,6 +21,18 @@ namespace Inventory_Manager
 
             btnClose.Click += btnClose_Click;
             btnPrint.Click += btnPrint_Click;
+            dtpeDate.DateChanged += dtpeDate_DateChanged;
+
+
+            resultSet = DBLink.trackProcedure("Get_Events", new List<Param>(new[] { new Param("@Event_Date", true) })).Tables[0];
+            List<DateTime> boldDates = new List<DateTime>();
+
+            foreach (DataRow row in resultSet.Rows)
+            {
+                boldDates.Add((DateTime)row[2]);
+            }
+
+            dtpeDate.setBoldDates(boldDates);
 
             populateEvents();
             cbxEvent.SelectedIndex = -1;
@@ -33,6 +45,7 @@ namespace Inventory_Manager
 
             btnClose.Click += btnClose_Click;
             btnPrint.Click += btnPrint_Click;
+            dtpeDate.DateChanged += dtpeDate_DateChanged;
 
             populateEvents();
             cbxEvent.SelectedValue = eventId;
@@ -40,10 +53,22 @@ namespace Inventory_Manager
 
         private void populateEvents()
         {
-            resultSet = DBLink.getProcedure("Get_Events");
+            Param eventDate = new Param();
+
+            if (dtpeDate.getDate() == DateTime.MinValue)
+            {
+                eventDate = new Param("@Event_Date", true);
+            }
+            else
+            {
+                eventDate = new Param("@Event_Date", dtpeDate.getDate(), typeof(DateTime));
+            }
+
+            resultSet = DBLink.trackProcedure("Get_Events", new List<Param>(new[] { eventDate })).Tables[0];
 
             cbxEvent.DataSource = resultSet;
             cbxEvent.DisplayMember = resultSet.Columns[1].ColumnName;
+
             if (cbxEvent.Items.Count > 0)
             {
                 cbxEvent.SelectedIndex = 0;
@@ -56,6 +81,12 @@ namespace Inventory_Manager
             int selectedId = (int)selectedRow[0];
 
             return selectedId;
+        }
+
+        private void dtpeDate_DateChanged(object sender, EventArgs e)
+        {
+            populateEvents();
+            cbxEvent.SelectedIndex = -1;
         }
 
         private void btnPrint_Click(object sender, EventArgs e)

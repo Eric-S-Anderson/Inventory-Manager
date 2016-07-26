@@ -113,6 +113,12 @@
     <Compile Include="CheckInEvent.Designer.cs">
       <DependentUpon>CheckInEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="DateTimePickerExtended.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DateTimePickerExtended.Designer.cs">
+      <DependentUpon>DateTimePickerExtended.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBCon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CheckInEvent.resx">
       <DependentUpon>CheckInEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DateTimePickerExtended.resx">
+      <DependentUpon>DateTimePickerExtended.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DBCon.resx">
       <DependentUpon>DBCon.cs</DependentUpon>

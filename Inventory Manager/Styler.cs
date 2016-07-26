@@ -12,8 +12,8 @@ namespace Inventory_Manager
         private static Form formBuffer;
         private static string settingsFile = DBLink.appDataDirectory + "Settings.txt";
         public static Dictionary<string, string> settings = new Dictionary<string, string>(); 
-        private static string fontName;
-        private static int fontSize;
+        private static string fontName = "Microsoft Sans Serif";
+        private static int fontSize = 15;
 
         #region Style Functions
         public static void stylePage(Form styleForm)
@@ -108,6 +108,10 @@ namespace Inventory_Manager
                         buttonControl.MouseLeave += ButtonAdd_MouseLeave;
                         buttonControl.MouseDown += ButtonAdd_MouseDown;
                         buttonControl.MouseUp += ButtonAdd_MouseUp;
+                    }
+                    else if (buttonControl.Tag.ToString() == "Leave")
+                    {
+                        buttonControl.ForeColor = Color.Black;
                     }
                 }
                 else if (formControl is Label)
