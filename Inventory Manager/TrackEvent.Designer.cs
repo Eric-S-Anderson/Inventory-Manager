@@ -49,9 +49,9 @@
             this.btnTrack = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.lblLocationName = new System.Windows.Forms.Label();
-            this.dtpEventDate = new System.Windows.Forms.DateTimePicker();
             this.cbxLocation = new System.Windows.Forms.ComboBox();
             this.btnClear = new System.Windows.Forms.Button();
+            this.dtpEventDate = new Inventory_Manager.DateTimePickerExtended();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvent)).BeginInit();
@@ -130,7 +130,7 @@
             // 
             this.lblEventDate.AutoSize = true;
             this.lblEventDate.Font = new System.Drawing.Font("Kristen ITC", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEventDate.Location = new System.Drawing.Point(59, 480);
+            this.lblEventDate.Location = new System.Drawing.Point(59, 458);
             this.lblEventDate.Name = "lblEventDate";
             this.lblEventDate.Size = new System.Drawing.Size(130, 28);
             this.lblEventDate.TabIndex = 35;
@@ -185,7 +185,7 @@
             // 
             this.lblEventName.AutoSize = true;
             this.lblEventName.Font = new System.Drawing.Font("Kristen ITC", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEventName.Location = new System.Drawing.Point(52, 437);
+            this.lblEventName.Location = new System.Drawing.Point(52, 516);
             this.lblEventName.Name = "lblEventName";
             this.lblEventName.Size = new System.Drawing.Size(137, 28);
             this.lblEventName.TabIndex = 40;
@@ -195,7 +195,7 @@
             // txtEventName
             // 
             this.txtEventName.Font = new System.Drawing.Font("Kristen ITC", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEventName.Location = new System.Drawing.Point(203, 434);
+            this.txtEventName.Location = new System.Drawing.Point(203, 509);
             this.txtEventName.Name = "txtEventName";
             this.txtEventName.Size = new System.Drawing.Size(352, 35);
             this.txtEventName.TabIndex = 0;
@@ -203,7 +203,7 @@
             // btnMainMenu
             // 
             this.btnMainMenu.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnMainMenu.Location = new System.Drawing.Point(584, 544);
+            this.btnMainMenu.Location = new System.Drawing.Point(584, 590);
             this.btnMainMenu.Margin = new System.Windows.Forms.Padding(0);
             this.btnMainMenu.Name = "btnMainMenu";
             this.btnMainMenu.Size = new System.Drawing.Size(200, 75);
@@ -214,7 +214,7 @@
             // 
             // btnTrack
             // 
-            this.btnTrack.Location = new System.Drawing.Point(162, 570);
+            this.btnTrack.Location = new System.Drawing.Point(162, 616);
             this.btnTrack.Margin = new System.Windows.Forms.Padding(0);
             this.btnTrack.Name = "btnTrack";
             this.btnTrack.Size = new System.Drawing.Size(118, 49);
@@ -224,7 +224,7 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(299, 570);
+            this.btnPrint.Location = new System.Drawing.Point(299, 616);
             this.btnPrint.Margin = new System.Windows.Forms.Padding(0);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(118, 49);
@@ -236,34 +236,26 @@
             // 
             this.lblLocationName.AutoSize = true;
             this.lblLocationName.Font = new System.Drawing.Font("Kristen ITC", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLocationName.Location = new System.Drawing.Point(20, 520);
+            this.lblLocationName.Location = new System.Drawing.Point(20, 566);
             this.lblLocationName.Name = "lblLocationName";
             this.lblLocationName.Size = new System.Drawing.Size(169, 28);
             this.lblLocationName.TabIndex = 35;
             this.lblLocationName.Text = "Location Name:";
             this.lblLocationName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // dtpEventDate
-            // 
-            this.dtpEventDate.Font = new System.Drawing.Font("Kristen ITC", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpEventDate.Location = new System.Drawing.Point(203, 475);
-            this.dtpEventDate.Name = "dtpEventDate";
-            this.dtpEventDate.Size = new System.Drawing.Size(352, 35);
-            this.dtpEventDate.TabIndex = 1;
-            // 
             // cbxLocation
             // 
             this.cbxLocation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxLocation.Font = new System.Drawing.Font("Kristen ITC", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxLocation.FormattingEnabled = true;
-            this.cbxLocation.Location = new System.Drawing.Point(203, 517);
+            this.cbxLocation.Location = new System.Drawing.Point(203, 563);
             this.cbxLocation.Name = "cbxLocation";
             this.cbxLocation.Size = new System.Drawing.Size(352, 36);
             this.cbxLocation.TabIndex = 2;
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(437, 570);
+            this.btnClear.Location = new System.Drawing.Point(437, 616);
             this.btnClear.Margin = new System.Windows.Forms.Padding(0);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(118, 49);
@@ -271,13 +263,21 @@
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             // 
+            // dtpEventDate
+            // 
+            this.dtpEventDate.AutoSize = true;
+            this.dtpEventDate.Location = new System.Drawing.Point(203, 455);
+            this.dtpEventDate.Name = "dtpEventDate";
+            this.dtpEventDate.Size = new System.Drawing.Size(430, 30);
+            this.dtpEventDate.TabIndex = 44;
+            // 
             // frmTrackEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 628);
-            this.Controls.Add(this.cbxLocation);
+            this.ClientSize = new System.Drawing.Size(793, 674);
             this.Controls.Add(this.dtpEventDate);
+            this.Controls.Add(this.cbxLocation);
             this.Controls.Add(this.dgvLocation);
             this.Controls.Add(this.dgvBox);
             this.Controls.Add(this.dgvEvent);
@@ -323,8 +323,8 @@
         public System.Windows.Forms.Button btnTrack;
         public System.Windows.Forms.Button btnPrint;
         public System.Windows.Forms.Label lblLocationName;
-        private System.Windows.Forms.DateTimePicker dtpEventDate;
         private System.Windows.Forms.ComboBox cbxLocation;
         public System.Windows.Forms.Button btnClear;
+        private DateTimePickerExtended dtpEventDate;
     }
 }

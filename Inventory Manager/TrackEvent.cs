@@ -25,10 +25,25 @@ namespace Inventory_Manager
             btnTrack.Click += btnTrack_Click;
             btnClear.Click += btnClear_Click;
             btnPrint.Click += btnPrint_Click;
-            dtpEventDate.ValueChanged += dtpEventDate_ValueChanged;
+            dtpEventDate.DateChanged += dtpeDate_DateChanged;
+
+            DataTable eventDates = DBLink.getProcedure("Get_Events", new List<Param>(new[] { new Param("@Event_Date", true) }));
+            List<DateTime> boldDates = new List<DateTime>();
+
+            foreach (DataRow row in eventDates.Rows)
+            {
+                boldDates.Add((DateTime)row[2]);
+            }
+
+            dtpEventDate.setBoldDates(boldDates);
 
             populateLocations();
             clearFields();
+        }
+
+        private void dtpeDate_DateChanged(object sender, EventArgs e)
+        {
+
         }
 
         private int getSelectedLocationId()
@@ -105,7 +120,7 @@ namespace Inventory_Manager
             }
             else
             {
-                eventDate = new Param("@Event_Date", dtpEventDate.Value, typeof(DateTime));
+                eventDate = new Param("@Event_Date", dtpEventDate.getDate(), typeof(DateTime));
             }
 
             if (cbxLocation.SelectedIndex == -1)
@@ -145,15 +160,8 @@ namespace Inventory_Manager
         private void clearFields()
         {
             txtEventName.Text = "";
-            dtpEventDate.CustomFormat = " ";
-            dtpEventDate.Format = DateTimePickerFormat.Custom;
             cbxLocation.SelectedIndex = -1;
             txtEventName.Focus();
-        }
-
-        private void dtpEventDate_ValueChanged(object sender, EventArgs e)
-        {
-            dtpEventDate.Format = DateTimePickerFormat.Long;
         }
 
         private void btnPrint_Click(object sender, EventArgs e)

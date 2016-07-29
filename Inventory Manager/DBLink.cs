@@ -248,6 +248,40 @@ namespace Inventory_Manager
             }
         }
 
+        public static DataTable getProcedure(string procedureName, List<Param> parameters)
+        {
+            try
+            {
+                using (SqlConnection databaseConnection = new SqlConnection(getConnectionString()))
+                {
+                    databaseConnection.Open();
+
+                    SqlCommand databaseCommand = new SqlCommand(procedureName);
+                    databaseCommand.Connection = databaseConnection;
+                    databaseCommand.CommandType = CommandType.StoredProcedure;
+
+                    foreach (var item in parameters)
+                    {
+                        databaseCommand.Parameters.Add(item.SQLParam);
+                    }
+
+                    using (SqlDataReader dataReader = databaseCommand.ExecuteReader())
+                    {
+                        var returnTable = new DataTable();
+                        returnTable.Load(dataReader);
+
+                        databaseConnection.Close();
+                        return returnTable;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), applicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return new DataTable();
+            }
+        }
+
         public static DataSet trackProcedure(string procedureName, List<Param> parameters)
         {
             try

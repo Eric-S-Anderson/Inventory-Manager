@@ -6,13 +6,13 @@ using System.Windows.Forms;
 
 namespace Inventory_Manager
 {
-    public partial class frmPrintEvent : Form
+    public partial class frmPrintShipment : Form
     {
-        private string printFileName = DBLink.appDataDirectory + "boxingEvent.html";
+        private string printFileName = DBLink.appDataDirectory + "shipment.html";
         private DataTable resultSet;
         private Form calledIt;
 
-        public frmPrintEvent(Form callingForm)
+        public frmPrintShipment(Form callingForm)
         {
             InitializeComponent();
             Styler.stylePage(this);
@@ -24,7 +24,7 @@ namespace Inventory_Manager
             dtpeDate.DateChanged += dtpeDate_DateChanged;
 
 
-            DataTable resultTable = DBLink.getProcedure("Get_Events", new List<Param>(new[] { new Param("@Event_Date", true) }));
+            DataTable resultTable = DBLink.getProcedure("Get_Shipments", new List<Param>(new[] { new Param("@Shipment_Date", true) }));
             List<DateTime> boldDates = new List<DateTime>();
 
             foreach (DataRow row in resultTable.Rows)
@@ -34,40 +34,34 @@ namespace Inventory_Manager
 
             dtpeDate.setBoldDates(boldDates);
 
-            populateEvents();
+            populateShipments();
             cbxEvent.SelectedIndex = -1;
         }
 
-        public frmPrintEvent(int eventId)
+        private void populateShipments()
         {
-            InitializeComponent();
-            Styler.stylePage(this);
-
-            btnClose.Click += btnClose_Click;
-            btnPrint.Click += btnPrint_Click;
-            dtpeDate.DateChanged += dtpeDate_DateChanged;
-
-            populateEvents();
-            cbxEvent.SelectedValue = eventId;
-        }
-
-        private void populateEvents()
-        {
-            Param eventDate = new Param();
+            Param shipmentDate = new Param();
 
             if (dtpeDate.getDate() == DateTime.MinValue)
             {
-                eventDate = new Param("@Event_Date", true);
+                shipmentDate = new Param("@Shipment_Date", true);
             }
             else
             {
-                eventDate = new Param("@Event_Date", dtpeDate.getDate(), typeof(DateTime));
+                shipmentDate = new Param("@Shipment_Date", dtpeDate.getDate(), typeof(DateTime));
             }
 
-            resultSet = DBLink.getProcedure("Get_Events", new List<Param>(new[] { eventDate }));
+            resultSet = DBLink.getProcedure("Get_Shipments", new List<Param>(new[] { shipmentDate }));
+
+            resultSet.Columns.Add("comboDisplay", typeof(string));
+
+            foreach (DataRow row in resultSet.Rows)
+            {
+                row[3] = row[1].ToString() + ", " + Convert.ToDateTime(row[2]).ToShortDateString();
+            }
 
             cbxEvent.DataSource = resultSet;
-            cbxEvent.DisplayMember = resultSet.Columns[1].ColumnName;
+            cbxEvent.DisplayMember = resultSet.Columns[3].ColumnName;
 
             if (cbxEvent.Items.Count > 0)
             {
@@ -75,7 +69,7 @@ namespace Inventory_Manager
             }
         }
 
-        private int getSelectedEventId()
+        private int getSelectedShipmentId()
         {
             DataRowView selectedRow = (DataRowView)cbxEvent.SelectedValue;
             int selectedId = (int)selectedRow[0];
@@ -85,7 +79,7 @@ namespace Inventory_Manager
 
         private void dtpeDate_DateChanged(object sender, EventArgs e)
         {
-            populateEvents();
+            populateShipments();
             cbxEvent.SelectedIndex = -1;
         }
 
@@ -93,21 +87,21 @@ namespace Inventory_Manager
         {
             if (cbxEvent.SelectedIndex >= 0)
             {
-                createDoc(printFileName, getSelectedEventId());
+                createDoc(printFileName, getSelectedShipmentId());
                 printPreview(printFileName);
             }
             else
             {
-                MessageBox.Show("You must select an event!", DBLink.applicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("You must select a shipment!", DBLink.applicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        private void createDoc(string fileName, int eventID)
+        private void createDoc(string fileName, int shipmentId)
         {
             try
             {
-                DataSet eventSet = DBLink.trackProcedure("Get_Boxing_Event", new List<Param>(new[] {
-                                                                                        new Param("@Event_ID", eventID, typeof(int))
+                DataSet eventSet = DBLink.trackProcedure("Get_Shipment", new List<Param>(new[] {
+                                                                                        new Param("@Shipment_ID", shipmentId, typeof(int))
                                                                                         }));
 
                 using (StreamWriter sw = File.CreateText(fileName))
@@ -126,7 +120,7 @@ namespace Inventory_Manager
                     sw.WriteLine("<body>");
                     sw.WriteLine("<h2 class=\"header\">");
                     sw.WriteLine("<p>Kids Against Hunger Coalition</p>");
-                    sw.WriteLine("<p>Boxing Event</p>");
+                    sw.WriteLine("<p>Repository Shipment</p>");
                     sw.WriteLine("<p></p>");
                     sw.WriteLine("</h2>");
                     sw.WriteLine("<p class=\"header\">Report Date: " + DateTime.Today.ToShortDateString() + "</p>");
@@ -137,16 +131,14 @@ namespace Inventory_Manager
                     {
                         DateTime shortDate = (DateTime)eventSet.Tables[0].Rows[0][1];
 
-                        sw.WriteLine("<h3>Event Name: " + eventSet.Tables[0].Rows[0][0] + "</h3>");
-                        sw.WriteLine("<h3>Event Date: " + shortDate.ToShortDateString() + "</h3>");
-                        sw.WriteLine("<h3>Box Code: " + eventSet.Tables[0].Rows[0][2] + "</h3>");
+                        sw.WriteLine("<h3>Shipment Date: " + shortDate.ToShortDateString() + "</h3>");
                     }
 
                     sw.WriteLine("</td><td class = 'formatting'>");
 
                     if (eventSet.Tables[1] != null)
                     {
-                        sw.WriteLine("<h3>Event Location</h3>" 
+                        sw.WriteLine("<h3>Repository Location</h3>"
                             + "<p>" + eventSet.Tables[1].Rows[0][0] + "<br>"
                             + eventSet.Tables[1].Rows[0][1] + "<br>"
                             + eventSet.Tables[1].Rows[0][2] + ", "
@@ -155,82 +147,18 @@ namespace Inventory_Manager
                             + eventSet.Tables[1].Rows[0][5] + "<p>");
                     }
 
-                    sw.WriteLine("</td></tr><tr><td class = 'formatting'>");
+                    sw.WriteLine("</td></tr><tr><td class = 'formatting' colspan = 2>");
 
                     if (eventSet.Tables[2] != null)
                     {
                         sw.WriteLine("<p><br></p>");
                         sw.WriteLine("<table>");
-                        sw.WriteLine("<tr><th colspan = 2>Rice</th></tr>");
-                        sw.WriteLine("<tr><td>Lot Number</td><td>Quantity</td></tr>");
+                        sw.WriteLine("<tr><th colspan = 2>Food Boxes</th></tr>");
+                        sw.WriteLine("<tr><td>Box Code</td><td>Quantity</td></tr>");
 
-                        Dictionary<string, int> riceMap = new Dictionary<string, int>();
-
-                        for (int i = 0; i < eventSet.Tables[2].Rows.Count; i++)
+                        foreach (DataRow row in eventSet.Tables[2].Rows)
                         {
-                            if (riceMap.ContainsKey((string)eventSet.Tables[2].Rows[i][0]))
-                            {
-                                riceMap[(string)eventSet.Tables[2].Rows[i][0]]++;
-                            }else
-                            {
-                                riceMap.Add((string)eventSet.Tables[2].Rows[i][0], 1);
-                            }
-                        }
-
-                        foreach (string key in riceMap.Keys)
-                        {
-                            sw.WriteLine("<tr><td>" + key + "</td><td>" + riceMap[key] + "</td></tr>");
-                        }
-
-                        sw.WriteLine("</table>");
-                    }
-
-                    sw.WriteLine("</td><td class = 'formatting'>");
-
-                    if (eventSet.Tables[3] != null)
-                    {
-                        sw.WriteLine("<p><br></p>");
-                        sw.WriteLine("<table>");
-                        sw.WriteLine("<tr><th colspan = 2>Soy</th></tr>");
-                        sw.WriteLine("<tr><td>Bag Number</td></tr>");
-
-                        for (int i = 0; i < eventSet.Tables[3].Rows.Count; i++)
-                        {
-                            sw.WriteLine("<tr><td>" + eventSet.Tables[3].Rows[i][0] + "</td></tr>");
-                        }
-
-                        sw.WriteLine("</table>");
-                    }
-
-                    sw.WriteLine("</td></tr><tr><td class = 'formatting'>");
-
-                    if (eventSet.Tables[4] != null)
-                    {
-                        sw.WriteLine("<p><br></p>");
-                        sw.WriteLine("<table>");
-                        sw.WriteLine("<tr><th colspan = 2>Vegetables</th></tr>");
-                        sw.WriteLine("<tr><td>Lot Number</td><td>Box Number</td></tr>");
-
-                        for (int i = 0; i < eventSet.Tables[4].Rows.Count; i++)
-                        {
-                            sw.WriteLine("<tr><td>" + eventSet.Tables[4].Rows[i][0] + "</td><td>" + eventSet.Tables[4].Rows[i][1] + "</td></tr>");
-                        }
-
-                        sw.WriteLine("</table>");
-                    }
-
-                    sw.WriteLine("</td><td class = 'formatting'>");
-
-                    if (eventSet.Tables[5] != null)
-                    {
-                        sw.WriteLine("<p><br></p>");
-                        sw.WriteLine("<table>");
-                        sw.WriteLine("<tr><th colspan = 2>Vitamins</th></tr>");
-                        sw.WriteLine("<tr><td>Lot Number</td><td>Box Number</td></tr>");
-
-                        for (int i = 0; i < eventSet.Tables[5].Rows.Count; i++)
-                        {
-                            sw.WriteLine("<tr><td>" + eventSet.Tables[5].Rows[i][0] + "</td><td>" + eventSet.Tables[5].Rows[i][1] + "</td></tr>");
+                            sw.WriteLine("<tr><td>" + row[0] + "</td><td>" + row[1] + "</td></tr>");
                         }
 
                         sw.WriteLine("</table>");

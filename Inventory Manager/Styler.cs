@@ -20,7 +20,7 @@ namespace Inventory_Manager
         {
             formBuffer = styleForm;
             formBuffer.Icon = Icon.ExtractAssociatedIcon(Assembly.GetExecutingAssembly().Location);
-            if (!(formBuffer is frmAbout) && !(formBuffer is frmDBCon) && !(formBuffer is frmPrintEvent))
+            if (!(formBuffer is frmAbout) && !(formBuffer is frmDBCon) && !(formBuffer is frmPrintEvent) && !(formBuffer is frmPrintShipment))
             {
                 bool hasMenu = false;
 
@@ -197,11 +197,13 @@ namespace Inventory_Manager
             mspDropLevelDatabase.DropDownItems.Add("Connection", null, btnConnection_Click);
             mspDropLevelDatabase.DropDownItems.Add("Backup", null, btnBackup_Click);
             mspDropLevelDatabase.DropDownItems.Add("Restore", null, btnRestore_Click);
+            mspDropLevelDatabase.DropDownItems.Add("Update", null, btnUpdateDatabase_Click);
             mspDropLevelDatabase.DropDownItems.Add("Backup Reminders", null, btnBackupReminder_Click);
-            ((ToolStripMenuItem)mspDropLevelDatabase.DropDownItems[3]).Checked = DBLink.backupReminder;
+            ((ToolStripMenuItem)mspDropLevelDatabase.DropDownItems[4]).Checked = DBLink.backupReminder;
 
             ToolStripMenuItem mspDropLevelPrint = new ToolStripMenuItem("Print");
             mspDropLevelPrint.DropDownItems.Add("Boxing Event", null, btnPrintEvent_Click);
+            mspDropLevelPrint.DropDownItems.Add("Shipment", null, btnPrintShipment_Click);
 
             mspMidLevelTools.DropDownItems.Add(mspDropLevelDatabase);
             mspMidLevelTools.DropDownItems.Add(mspDropLevelPrint);
@@ -514,10 +516,29 @@ namespace Inventory_Manager
             ((ToolStripMenuItem)sender).Checked = DBLink.backupReminder;
         }
 
+        private static void btnUpdateDatabase_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofdScript = new OpenFileDialog();
+
+            ofdScript.Filter = "SQL Script Files| *.sql";
+
+            if (ofdScript.ShowDialog() == DialogResult.OK)
+            {
+                string script = File.ReadAllText(ofdScript.FileName);
+                DBLink.dynamicAdminQuery(script);
+            }
+        }
+
         private static void btnPrintEvent_Click(object sender, EventArgs e)
         {
             Form currentForm = getFormFromMenuItem(sender);
             new frmPrintEvent(currentForm).Show();
+        }
+
+        private static void btnPrintShipment_Click(object sender, EventArgs e)
+        {
+            Form currentForm = getFormFromMenuItem(sender);
+            new frmPrintShipment(currentForm).Show();
         }
 
         private static void btnManualQuery_Click(object sender, EventArgs e)
