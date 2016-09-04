@@ -194,12 +194,13 @@ namespace Inventory_Manager
             ToolStripMenuItem mspMidLevelTools = new ToolStripMenuItem("Tools");
 
             ToolStripMenuItem mspDropLevelDatabase = new ToolStripMenuItem("Database");
+            mspDropLevelDatabase.DropDownItems.Add("Edit Data", null, btnEditDatabase_Click);
             mspDropLevelDatabase.DropDownItems.Add("Connection", null, btnConnection_Click);
             mspDropLevelDatabase.DropDownItems.Add("Backup", null, btnBackup_Click);
             mspDropLevelDatabase.DropDownItems.Add("Restore", null, btnRestore_Click);
             mspDropLevelDatabase.DropDownItems.Add("Update", null, btnUpdateDatabase_Click);
             mspDropLevelDatabase.DropDownItems.Add("Backup Reminders", null, btnBackupReminder_Click);
-            ((ToolStripMenuItem)mspDropLevelDatabase.DropDownItems[4]).Checked = DBLink.backupReminder;
+            ((ToolStripMenuItem)mspDropLevelDatabase.DropDownItems[5]).Checked = DBLink.backupReminder;
 
             ToolStripMenuItem mspDropLevelPrint = new ToolStripMenuItem("Print");
             mspDropLevelPrint.DropDownItems.Add("Boxing Event", null, btnPrintEvent_Click);
@@ -545,6 +546,13 @@ namespace Inventory_Manager
         {
             Form currentForm = getFormFromMenuItem(sender);
             new frmQuery(currentForm).Show();
+            currentForm.Hide();
+        }
+
+        private static void btnEditDatabase_Click(object sender, EventArgs e)
+        {
+            Form currentForm = getFormFromMenuItem(sender);
+            new frmEditDatabase(currentForm).Show();
             currentForm.Hide();
         }
 
