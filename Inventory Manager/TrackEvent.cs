@@ -114,7 +114,7 @@ namespace Inventory_Manager
                 eventName = new Param("@Event_Name", txtEventName.Text, typeof(string));
             }
 
-            if (dtpEventDate.Text == "")
+            if (dtpEventDate.getDate() == DateTime.MinValue)
             {
                 eventDate = new Param("@Event_Date", true);
             }

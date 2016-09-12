@@ -33,7 +33,8 @@ namespace Inventory_Manager
 
         public void populateTables()
         {
-            string tableQuery = "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME NOT IN ('State_List', 'Country_List')";
+            string tableQuery = "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME NOT IN " + 
+                "('State_List', 'Country_List', 'Protein_Box', 'Rice_Box', 'Soy_Box', 'Vegetable_Box', 'Trailer_Event')";
 
             tableSet = DBLink.dynamicDataTableQuery(tableQuery);
 

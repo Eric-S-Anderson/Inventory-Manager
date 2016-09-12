@@ -44,7 +44,7 @@
             this.btnMainMenu.Margin = new System.Windows.Forms.Padding(0);
             this.btnMainMenu.Name = "btnMainMenu";
             this.btnMainMenu.Size = new System.Drawing.Size(200, 75);
-            this.btnMainMenu.TabIndex = 21;
+            this.btnMainMenu.TabIndex = 3;
             this.btnMainMenu.Tag = "Menu";
             this.btnMainMenu.Text = "Main Menu";
             this.btnMainMenu.UseVisualStyleBackColor = true;
@@ -55,7 +55,7 @@
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(0);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(200, 75);
-            this.btnUpdate.TabIndex = 20;
+            this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "Update Database";
             this.btnUpdate.UseVisualStyleBackColor = true;
             // 
@@ -67,7 +67,7 @@
             this.cbxTables.Location = new System.Drawing.Point(112, 508);
             this.cbxTables.Name = "cbxTables";
             this.cbxTables.Size = new System.Drawing.Size(322, 33);
-            this.cbxTables.TabIndex = 22;
+            this.cbxTables.TabIndex = 1;
             // 
             // lblTable
             // 
@@ -95,7 +95,7 @@
             this.dgvEditTable.Location = new System.Drawing.Point(12, 104);
             this.dgvEditTable.Name = "dgvEditTable";
             this.dgvEditTable.Size = new System.Drawing.Size(956, 366);
-            this.dgvEditTable.TabIndex = 25;
+            this.dgvEditTable.TabIndex = 0;
             // 
             // frmEditDatabase
             // 
