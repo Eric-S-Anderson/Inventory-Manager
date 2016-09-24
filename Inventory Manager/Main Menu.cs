@@ -13,15 +13,7 @@ namespace Inventory_Manager
             Styler.stylePage(this);
 
             btnExitApplication.Text = Properties.Resources.ButtonExit;
-            btnAddEventLocation.Text = Properties.Resources.ButtonAddEventLocation;
-            btnAddEventLocation.MouseClick += BtnAddEventLocation_MouseClick;
             
-        }
-
-        private void BtnAddEventLocation_MouseClick(object sender, MouseEventArgs e)
-        {
-            new frmAddEventLocation(this).Show();
-            Hide();
         }
 
         private void btnAddRepository_Click(object sender, EventArgs e)
@@ -32,14 +24,12 @@ namespace Inventory_Manager
 
         private void btnAddTrailer_Click(object sender, EventArgs e)
         {
-            new frmAddTrailer(this).Show();
-            Hide();
+            new frmPrintEvent(this).Show();
         }
 
         private void btnAddDOT_Click(object sender, EventArgs e)
         {
-            new frmAddDOT(this).Show();
-            Hide();
+            new frmPrintShipment(this).Show();
         }
 
         private void btnAddBoxingEvent_Click(object sender, EventArgs e)

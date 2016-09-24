@@ -30,24 +30,22 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainMenu));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnAddEventLocation = new System.Windows.Forms.Button();
             this.btnExitApplication = new System.Windows.Forms.Button();
             this.btnCheckInEvent = new System.Windows.Forms.Button();
-            this.btnAddRepository = new System.Windows.Forms.Button();
             this.btnAddBoxingEvent = new System.Windows.Forms.Button();
-            this.btnAddTrailer = new System.Windows.Forms.Button();
-            this.btnAddDOT = new System.Windows.Forms.Button();
+            this.btnPrintEvent = new System.Windows.Forms.Button();
+            this.btnPrintShipment = new System.Windows.Forms.Button();
             this.btnAddShipment = new System.Windows.Forms.Button();
             this.btnTrackItem = new System.Windows.Forms.Button();
             this.gbxEvent = new System.Windows.Forms.GroupBox();
-            this.gbxAdditions = new System.Windows.Forms.GroupBox();
+            this.gbxPrinting = new System.Windows.Forms.GroupBox();
             this.btnTrackEvent = new System.Windows.Forms.Button();
             this.gbxTracking = new System.Windows.Forms.GroupBox();
             this.gbxShipment = new System.Windows.Forms.GroupBox();
             this.lblHeader = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbxEvent.SuspendLayout();
-            this.gbxAdditions.SuspendLayout();
+            this.gbxPrinting.SuspendLayout();
             this.gbxTracking.SuspendLayout();
             this.gbxShipment.SuspendLayout();
             this.SuspendLayout();
@@ -55,29 +53,12 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Inventory_Manager.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(85, 417);
+            this.pictureBox1.Location = new System.Drawing.Point(490, 89);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(315, 176);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // btnAddEventLocation
-            // 
-            this.btnAddEventLocation.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddEventLocation.BackgroundImage = global::Inventory_Manager.Properties.Resources.Button_14;
-            this.btnAddEventLocation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAddEventLocation.FlatAppearance.BorderSize = 0;
-            this.btnAddEventLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddEventLocation.Font = new System.Drawing.Font("Kristen ITC", 15F, System.Drawing.FontStyle.Bold);
-            this.btnAddEventLocation.ForeColor = System.Drawing.Color.White;
-            this.btnAddEventLocation.Location = new System.Drawing.Point(218, 106);
-            this.btnAddEventLocation.Margin = new System.Windows.Forms.Padding(5);
-            this.btnAddEventLocation.Name = "btnAddEventLocation";
-            this.btnAddEventLocation.Size = new System.Drawing.Size(200, 75);
-            this.btnAddEventLocation.TabIndex = 1;
-            this.btnAddEventLocation.Text = "Add Event Location";
-            this.btnAddEventLocation.UseVisualStyleBackColor = false;
             // 
             // btnExitApplication
             // 
@@ -88,7 +69,7 @@
             this.btnExitApplication.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExitApplication.Font = new System.Drawing.Font("Kristen ITC", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExitApplication.ForeColor = System.Drawing.Color.White;
-            this.btnExitApplication.Location = new System.Drawing.Point(465, 518);
+            this.btnExitApplication.Location = new System.Drawing.Point(605, 461);
             this.btnExitApplication.Margin = new System.Windows.Forms.Padding(5);
             this.btnExitApplication.Name = "btnExitApplication";
             this.btnExitApplication.Size = new System.Drawing.Size(200, 75);
@@ -107,7 +88,7 @@
             this.btnCheckInEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCheckInEvent.Font = new System.Drawing.Font("Kristen ITC", 15F, System.Drawing.FontStyle.Bold);
             this.btnCheckInEvent.ForeColor = System.Drawing.Color.White;
-            this.btnCheckInEvent.Location = new System.Drawing.Point(8, 106);
+            this.btnCheckInEvent.Location = new System.Drawing.Point(218, 21);
             this.btnCheckInEvent.Margin = new System.Windows.Forms.Padding(5);
             this.btnCheckInEvent.Name = "btnCheckInEvent";
             this.btnCheckInEvent.Size = new System.Drawing.Size(200, 75);
@@ -115,24 +96,6 @@
             this.btnCheckInEvent.Text = "Check In Boxing Event";
             this.btnCheckInEvent.UseVisualStyleBackColor = false;
             this.btnCheckInEvent.Click += new System.EventHandler(this.btnCheckInEvent_Click);
-            // 
-            // btnAddRepository
-            // 
-            this.btnAddRepository.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddRepository.BackgroundImage = global::Inventory_Manager.Properties.Resources.Button_14;
-            this.btnAddRepository.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAddRepository.FlatAppearance.BorderSize = 0;
-            this.btnAddRepository.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddRepository.Font = new System.Drawing.Font("Kristen ITC", 15F, System.Drawing.FontStyle.Bold);
-            this.btnAddRepository.ForeColor = System.Drawing.Color.White;
-            this.btnAddRepository.Location = new System.Drawing.Point(8, 106);
-            this.btnAddRepository.Margin = new System.Windows.Forms.Padding(5);
-            this.btnAddRepository.Name = "btnAddRepository";
-            this.btnAddRepository.Size = new System.Drawing.Size(200, 75);
-            this.btnAddRepository.TabIndex = 1;
-            this.btnAddRepository.Text = "Add Repository";
-            this.btnAddRepository.UseVisualStyleBackColor = false;
-            this.btnAddRepository.Click += new System.EventHandler(this.btnAddRepository_Click);
             // 
             // btnAddBoxingEvent
             // 
@@ -152,41 +115,41 @@
             this.btnAddBoxingEvent.UseVisualStyleBackColor = false;
             this.btnAddBoxingEvent.Click += new System.EventHandler(this.btnAddBoxingEvent_Click);
             // 
-            // btnAddTrailer
+            // btnPrintEvent
             // 
-            this.btnAddTrailer.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddTrailer.BackgroundImage = global::Inventory_Manager.Properties.Resources.Button_14;
-            this.btnAddTrailer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAddTrailer.FlatAppearance.BorderSize = 0;
-            this.btnAddTrailer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddTrailer.Font = new System.Drawing.Font("Kristen ITC", 15F, System.Drawing.FontStyle.Bold);
-            this.btnAddTrailer.ForeColor = System.Drawing.Color.White;
-            this.btnAddTrailer.Location = new System.Drawing.Point(8, 21);
-            this.btnAddTrailer.Margin = new System.Windows.Forms.Padding(5);
-            this.btnAddTrailer.Name = "btnAddTrailer";
-            this.btnAddTrailer.Size = new System.Drawing.Size(200, 75);
-            this.btnAddTrailer.TabIndex = 1;
-            this.btnAddTrailer.Text = "Add Trailer";
-            this.btnAddTrailer.UseVisualStyleBackColor = false;
-            this.btnAddTrailer.Click += new System.EventHandler(this.btnAddTrailer_Click);
+            this.btnPrintEvent.BackColor = System.Drawing.Color.Transparent;
+            this.btnPrintEvent.BackgroundImage = global::Inventory_Manager.Properties.Resources.Button_14;
+            this.btnPrintEvent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPrintEvent.FlatAppearance.BorderSize = 0;
+            this.btnPrintEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintEvent.Font = new System.Drawing.Font("Kristen ITC", 15F, System.Drawing.FontStyle.Bold);
+            this.btnPrintEvent.ForeColor = System.Drawing.Color.White;
+            this.btnPrintEvent.Location = new System.Drawing.Point(8, 21);
+            this.btnPrintEvent.Margin = new System.Windows.Forms.Padding(5);
+            this.btnPrintEvent.Name = "btnPrintEvent";
+            this.btnPrintEvent.Size = new System.Drawing.Size(200, 75);
+            this.btnPrintEvent.TabIndex = 1;
+            this.btnPrintEvent.Text = "Print Event";
+            this.btnPrintEvent.UseVisualStyleBackColor = false;
+            this.btnPrintEvent.Click += new System.EventHandler(this.btnAddTrailer_Click);
             // 
-            // btnAddDOT
+            // btnPrintShipment
             // 
-            this.btnAddDOT.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddDOT.BackgroundImage = global::Inventory_Manager.Properties.Resources.Button_14;
-            this.btnAddDOT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAddDOT.FlatAppearance.BorderSize = 0;
-            this.btnAddDOT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddDOT.Font = new System.Drawing.Font("Kristen ITC", 15F, System.Drawing.FontStyle.Bold);
-            this.btnAddDOT.ForeColor = System.Drawing.Color.White;
-            this.btnAddDOT.Location = new System.Drawing.Point(218, 21);
-            this.btnAddDOT.Margin = new System.Windows.Forms.Padding(5);
-            this.btnAddDOT.Name = "btnAddDOT";
-            this.btnAddDOT.Size = new System.Drawing.Size(200, 75);
-            this.btnAddDOT.TabIndex = 1;
-            this.btnAddDOT.Text = "Add DOT Number";
-            this.btnAddDOT.UseVisualStyleBackColor = false;
-            this.btnAddDOT.Click += new System.EventHandler(this.btnAddDOT_Click);
+            this.btnPrintShipment.BackColor = System.Drawing.Color.Transparent;
+            this.btnPrintShipment.BackgroundImage = global::Inventory_Manager.Properties.Resources.Button_14;
+            this.btnPrintShipment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPrintShipment.FlatAppearance.BorderSize = 0;
+            this.btnPrintShipment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintShipment.Font = new System.Drawing.Font("Kristen ITC", 15F, System.Drawing.FontStyle.Bold);
+            this.btnPrintShipment.ForeColor = System.Drawing.Color.White;
+            this.btnPrintShipment.Location = new System.Drawing.Point(218, 21);
+            this.btnPrintShipment.Margin = new System.Windows.Forms.Padding(5);
+            this.btnPrintShipment.Name = "btnPrintShipment";
+            this.btnPrintShipment.Size = new System.Drawing.Size(200, 75);
+            this.btnPrintShipment.TabIndex = 1;
+            this.btnPrintShipment.Text = "Print Shipment";
+            this.btnPrintShipment.UseVisualStyleBackColor = false;
+            this.btnPrintShipment.Click += new System.EventHandler(this.btnAddDOT_Click);
             // 
             // btnAddShipment
             // 
@@ -228,27 +191,23 @@
             // 
             this.gbxEvent.Controls.Add(this.btnAddBoxingEvent);
             this.gbxEvent.Controls.Add(this.btnCheckInEvent);
-            this.gbxEvent.Location = new System.Drawing.Point(9, 77);
-            this.gbxEvent.Margin = new System.Windows.Forms.Padding(10);
+            this.gbxEvent.Location = new System.Drawing.Point(19, 89);
             this.gbxEvent.Name = "gbxEvent";
-            this.gbxEvent.Size = new System.Drawing.Size(218, 196);
+            this.gbxEvent.Size = new System.Drawing.Size(426, 111);
             this.gbxEvent.TabIndex = 2;
             this.gbxEvent.TabStop = false;
             this.gbxEvent.Text = "Events";
             // 
-            // gbxAdditions
+            // gbxPrinting
             // 
-            this.gbxAdditions.Controls.Add(this.btnAddTrailer);
-            this.gbxAdditions.Controls.Add(this.btnAddDOT);
-            this.gbxAdditions.Controls.Add(this.btnAddRepository);
-            this.gbxAdditions.Controls.Add(this.btnAddEventLocation);
-            this.gbxAdditions.Location = new System.Drawing.Point(247, 77);
-            this.gbxAdditions.Margin = new System.Windows.Forms.Padding(10);
-            this.gbxAdditions.Name = "gbxAdditions";
-            this.gbxAdditions.Size = new System.Drawing.Size(426, 196);
-            this.gbxAdditions.TabIndex = 3;
-            this.gbxAdditions.TabStop = false;
-            this.gbxAdditions.Text = "Additions";
+            this.gbxPrinting.Controls.Add(this.btnPrintEvent);
+            this.gbxPrinting.Controls.Add(this.btnPrintShipment);
+            this.gbxPrinting.Location = new System.Drawing.Point(19, 440);
+            this.gbxPrinting.Name = "gbxPrinting";
+            this.gbxPrinting.Size = new System.Drawing.Size(426, 111);
+            this.gbxPrinting.TabIndex = 3;
+            this.gbxPrinting.TabStop = false;
+            this.gbxPrinting.Text = "Printing";
             // 
             // btnTrackEvent
             // 
@@ -272,8 +231,7 @@
             // 
             this.gbxTracking.Controls.Add(this.btnTrackEvent);
             this.gbxTracking.Controls.Add(this.btnTrackItem);
-            this.gbxTracking.Location = new System.Drawing.Point(247, 293);
-            this.gbxTracking.Margin = new System.Windows.Forms.Padding(10);
+            this.gbxTracking.Location = new System.Drawing.Point(19, 323);
             this.gbxTracking.Name = "gbxTracking";
             this.gbxTracking.Size = new System.Drawing.Size(426, 111);
             this.gbxTracking.TabIndex = 4;
@@ -283,7 +241,7 @@
             // gbxShipment
             // 
             this.gbxShipment.Controls.Add(this.btnAddShipment);
-            this.gbxShipment.Location = new System.Drawing.Point(9, 293);
+            this.gbxShipment.Location = new System.Drawing.Point(19, 206);
             this.gbxShipment.Name = "gbxShipment";
             this.gbxShipment.Size = new System.Drawing.Size(218, 111);
             this.gbxShipment.TabIndex = 5;
@@ -294,7 +252,7 @@
             // 
             this.lblHeader.AutoSize = true;
             this.lblHeader.Font = new System.Drawing.Font("Kristen ITC", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.Location = new System.Drawing.Point(266, 39);
+            this.lblHeader.Location = new System.Drawing.Point(343, 42);
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(125, 28);
             this.lblHeader.TabIndex = 12;
@@ -304,11 +262,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(689, 607);
+            this.ClientSize = new System.Drawing.Size(821, 570);
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.gbxShipment);
             this.Controls.Add(this.gbxTracking);
-            this.Controls.Add(this.gbxAdditions);
+            this.Controls.Add(this.gbxPrinting);
             this.Controls.Add(this.gbxEvent);
             this.Controls.Add(this.btnExitApplication);
             this.Controls.Add(this.pictureBox1);
@@ -323,7 +281,7 @@
             this.Shown += new System.EventHandler(this.frmMainMenu_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gbxEvent.ResumeLayout(false);
-            this.gbxAdditions.ResumeLayout(false);
+            this.gbxPrinting.ResumeLayout(false);
             this.gbxTracking.ResumeLayout(false);
             this.gbxShipment.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -334,17 +292,15 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnAddEventLocation;
         private System.Windows.Forms.Button btnExitApplication;
         private System.Windows.Forms.Button btnCheckInEvent;
-        private System.Windows.Forms.Button btnAddRepository;
         private System.Windows.Forms.Button btnAddBoxingEvent;
-        private System.Windows.Forms.Button btnAddTrailer;
-        private System.Windows.Forms.Button btnAddDOT;
+        private System.Windows.Forms.Button btnPrintEvent;
+        private System.Windows.Forms.Button btnPrintShipment;
         private System.Windows.Forms.Button btnAddShipment;
         private System.Windows.Forms.Button btnTrackItem;
         private System.Windows.Forms.GroupBox gbxEvent;
-        private System.Windows.Forms.GroupBox gbxAdditions;
+        private System.Windows.Forms.GroupBox gbxPrinting;
         private System.Windows.Forms.Button btnTrackEvent;
         private System.Windows.Forms.GroupBox gbxTracking;
         private System.Windows.Forms.GroupBox gbxShipment;
