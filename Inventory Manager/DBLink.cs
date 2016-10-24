@@ -9,14 +9,24 @@ namespace Inventory_Manager
 {
     static class DBLink
     {
+        public static string fullCon = "Server=tcp:kahc.database.windows.net,1433;Initial Catalog=KAHC;Persist Security Info=False;User ID=kahcadmin;Password=123!@#qweQWE;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        public static string CloudConnectionStart = "Server=tcp:";
+        public static string CloudConnectionServer = "";
+        public static string CloudConnectionMiddle = ",1433;Initial Catalog=KAHC;Persist Security Info=False;";
+        public static string CloudConnectionIDStart = "User ID=";
+        public static string CloudConnectionID = "";
+        public static string CloudConnectionPasswordStart = ";Password=";
+        public static string CloudConnectionPassword = "";
+        public static string CloudConnectionEnd = ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         public static string applicationName = "Inventory Manager";
-        public static string conStart = "Data Source = (LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"";
-        public static string conEnd = "\";Integrated Security=True;Connect Timeout=30";
-        public static string conFile = "";
+        public static string LocalConnectionStart = "Data Source = (LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"";
+        public static string LocalConnectionEnd = "\";Integrated Security=True;Connect Timeout=30";
+        public static string LocalConnectionFile = "";
         public static string restoreWarning = "ATTENTION\n\nThis action is not recoverable.\nPlease make sure that you have backed up the current\nversion of the database before proceeding.";
         public static DateTime lastBackupDate = DateTime.Today;
         public static bool askedForBackup = false;
         public static bool backupReminder = true;
+        public static bool isCloudConnection = false;
         public static string appDataDirectory = "C:\\Users\\" + Environment.UserName + "\\AppData\\Local\\KAHIM\\";
 
         public static void testConnection()
@@ -56,7 +66,14 @@ namespace Inventory_Manager
 
         public static string getConnectionString()
         {
-            return conStart + conFile + conEnd;
+            if (isCloudConnection)
+            {
+                return CloudConnectionStart + CloudConnectionServer + CloudConnectionMiddle + CloudConnectionIDStart + CloudConnectionID + CloudConnectionPasswordStart + CloudConnectionPassword + CloudConnectionEnd;
+            }
+            else
+            {
+                return LocalConnectionStart + LocalConnectionFile + LocalConnectionEnd;
+            }
         }
 
         public static void dynamicVoidQuery(string query)

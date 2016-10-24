@@ -240,9 +240,9 @@ namespace Inventory_Manager
 
             foreach (string line in lines)
             {
-                int splitter = line.IndexOf(':');
+                int splitter = line.IndexOf(":://");
                 string key = line.Substring(0, splitter);
-                string value = line.Substring(splitter + 1, line.Length - splitter - 1);
+                string value = line.Substring(splitter + 4, line.Length - splitter - 4);
 
                 if (!settings.ContainsKey(key))
                 {
@@ -275,14 +275,54 @@ namespace Inventory_Manager
                 settings.Add("fontsize", "15");
             }
 
-            if (settings.ContainsKey("connectionstring"))
+            if (settings.ContainsKey("cloudconnection"))
             {
-                DBLink.conFile = settings["connectionstring"];
+                DBLink.isCloudConnection = Convert.ToBoolean(settings["cloudconnection"]);
             }
             else
             {
-                DBLink.conFile = "\\Data.mdf";
+                DBLink.isCloudConnection = false;
+                settings.Add("cloudconnection", "false");
+            }
+
+            if (settings.ContainsKey("connectionstring"))
+            {
+                DBLink.LocalConnectionFile = settings["connectionstring"];
+            }
+            else
+            {
+                DBLink.LocalConnectionFile = "\\Data.mdf";
                 settings.Add("connectionstring", "\\Data.mdf");
+            }
+
+            if (settings.ContainsKey("server"))
+            {
+                DBLink.CloudConnectionServer = settings["server"];
+            }
+            else
+            {
+                DBLink.CloudConnectionServer = "NULL";
+                settings.Add("server", "NULL");
+            }
+
+            if (settings.ContainsKey("username"))
+            {
+                DBLink.CloudConnectionID = settings["username"];
+            }
+            else
+            {
+                DBLink.CloudConnectionID = "NULL";
+                settings.Add("username", "NULL");
+            }
+
+            if (settings.ContainsKey("password"))
+            {
+                DBLink.CloudConnectionPassword = settings["password"];
+            }
+            else
+            {
+                DBLink.CloudConnectionPassword = "NULL";
+                settings.Add("password", "NULL");
             }
 
             if (settings.ContainsKey("lastbackup"))
@@ -314,7 +354,7 @@ namespace Inventory_Manager
 
             foreach (string key in settings.Keys)
             {
-                lines.Add(key + ":" + settings[key]);
+                lines.Add(key + ":://" + settings[key]);
             }
 
             File.WriteAllLines(settingsFile, lines);
@@ -460,13 +500,13 @@ namespace Inventory_Manager
                 try
                 {
                     DBLink.dynamicAdminQuery("USE master;" + 
-                        "ALTER DATABASE [" + DBLink.conFile + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;" + 
-                        "EXEC sp_detach_db '" + DBLink.conFile + "', 'true';");
+                        "ALTER DATABASE [" + DBLink.LocalConnectionFile + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;" + 
+                        "EXEC sp_detach_db '" + DBLink.LocalConnectionFile + "', 'true';");
 
-                    File.Copy(DBLink.conFile, sfdBackup.FileName, true);
+                    File.Copy(DBLink.LocalConnectionFile, sfdBackup.FileName, true);
 
                     DBLink.dynamicAdminQuery("USE master;" +
-                        "ALTER DATABASE [" + DBLink.conFile + "] SET MULTI_USER;");
+                        "ALTER DATABASE [" + DBLink.LocalConnectionFile + "] SET MULTI_USER;");
 
                     settings["lastbackup"] = DateTime.Today.ToShortDateString();
                     DBLink.lastBackupDate = DateTime.Today;
@@ -492,13 +532,13 @@ namespace Inventory_Manager
                     try
                     {
                         DBLink.dynamicAdminQuery("USE master;" +
-                        "ALTER DATABASE [" + DBLink.conFile + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;" +
-                        "EXEC sp_detach_db '" + DBLink.conFile + "', 'true';");
+                        "ALTER DATABASE [" + DBLink.LocalConnectionFile + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;" +
+                        "EXEC sp_detach_db '" + DBLink.LocalConnectionFile + "', 'true';");
 
-                        File.Copy(ofdRestore.FileName, DBLink.conFile, true);
+                        File.Copy(ofdRestore.FileName, DBLink.LocalConnectionFile, true);
 
                         DBLink.dynamicAdminQuery("USE master;" +
-                            "ALTER DATABASE [" + DBLink.conFile + "] SET MULTI_USER;");
+                            "ALTER DATABASE [" + DBLink.LocalConnectionFile + "] SET MULTI_USER;");
 
                     }
                     catch (Exception ex)

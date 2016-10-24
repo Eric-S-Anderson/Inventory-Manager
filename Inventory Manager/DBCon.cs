@@ -16,6 +16,11 @@ namespace Inventory_Manager
             btnApply.Click += btnApply_Click;
             btnCancel.Click += btnCancel_Click;
             btnBrowse.Click += btnBrowse_Click;
+            rdbCloud.CheckedChanged += rdbConnectionType_CheckedChanged;
+            rdbLocal.CheckedChanged += rdbConnectionType_CheckedChanged;
+
+            rdbLocal.Checked = true;
+            rdbCloud.Checked = false;
         }
 
         private bool testConnection()
@@ -26,11 +31,29 @@ namespace Inventory_Manager
                 {
                     throw new FileNotFoundException();
                 }
-                using (SqlConnection databaseConnection = new SqlConnection(DBLink.conStart + txtConnection.Text + DBLink.conEnd))
+                if (rdbLocal.Checked)
                 {
-                    databaseConnection.Open();
-                    databaseConnection.Close();
-                    return true;
+                    using (SqlConnection databaseConnection = new SqlConnection(DBLink.LocalConnectionStart + txtConnection.Text + DBLink.LocalConnectionEnd))
+                    {
+                        databaseConnection.Open();
+                        databaseConnection.Close();
+                        return true;
+                    }
+                }
+                else if (rdbCloud.Checked)
+                {
+                    using (SqlConnection databaseConnection = new SqlConnection(DBLink.CloudConnectionStart + txtConnection.Text + 
+                        DBLink.CloudConnectionMiddle + DBLink.CloudConnectionIDStart + txtUser.Text + DBLink.CloudConnectionPasswordStart + 
+                        txtPassword.Text + DBLink.CloudConnectionEnd))
+                    {
+                        databaseConnection.Open();
+                        databaseConnection.Close();
+                        return true;
+                    }
+                }
+                else
+                {
+                    return false;
                 }
             }
             catch (Exception ex)
@@ -52,10 +75,31 @@ namespace Inventory_Manager
         {
             if (testConnection())
             {
-                DBLink.conFile = txtConnection.Text;
-                Styler.settings["connectionstring"] = txtConnection.Text;
-                Styler.saveSettings();
-                Dispose();
+                if (rdbLocal.Checked)
+                {
+
+                    DBLink.LocalConnectionFile = txtConnection.Text;
+                    DBLink.isCloudConnection = false;
+                    Styler.settings["cloudconnection"] = "false";
+                    Styler.settings["connectionstring"] = txtConnection.Text;
+                    Styler.settings["username"] = "";
+                    Styler.settings["password"] = "";
+                    Styler.saveSettings();
+                    Dispose();
+                }
+                else if (rdbCloud.Checked)
+                {
+                    DBLink.CloudConnectionServer = txtConnection.Text;
+                    DBLink.CloudConnectionID = txtUser.Text;
+                    DBLink.CloudConnectionPassword = txtPassword.Text;
+                    DBLink.isCloudConnection = true;
+                    Styler.settings["cloudconnection"] = "true";
+                    Styler.settings["server"] = txtConnection.Text;
+                    Styler.settings["username"] = txtUser.Text;
+                    Styler.settings["password"] = txtPassword.Text;
+                    Styler.saveSettings();
+                    Dispose();
+                }
             }
         }
 
@@ -69,6 +113,22 @@ namespace Inventory_Manager
             if (ofdDBCon.ShowDialog() == DialogResult.OK)
             {
                 txtConnection.Text = ofdDBCon.FileName;
+            }
+        }
+
+        private void rdbConnectionType_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbLocal.Checked)
+            {
+                txtPassword.Enabled = false;
+                txtUser.Enabled = false;
+                btnBrowse.Enabled = true;
+            }
+            else if (rdbCloud.Checked)
+            {
+                txtPassword.Enabled = true;
+                txtUser.Enabled = true;
+                btnBrowse.Enabled = false;
             }
         }
     }
