@@ -61,7 +61,11 @@ namespace Inventory_Manager
             new frmTrackEvent(this).Show();
             Hide();
         }
-
+        private void btnInventory_Click(object sender, EventArgs e)
+        {
+            new frmInventory(this).Show();
+            Hide();
+        }
         private void btnExitApplication_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -82,5 +86,7 @@ namespace Inventory_Manager
                 DBLink.shouldBackup();
             }
         }
+
+       
     }
 }

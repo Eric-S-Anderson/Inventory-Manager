@@ -43,6 +43,7 @@
             this.gbxTracking = new System.Windows.Forms.GroupBox();
             this.gbxShipment = new System.Windows.Forms.GroupBox();
             this.lblHeader = new System.Windows.Forms.Label();
+            this.btnInventory = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbxEvent.SuspendLayout();
             this.gbxPrinting.SuspendLayout();
@@ -258,11 +259,30 @@
             this.lblHeader.TabIndex = 12;
             this.lblHeader.Text = "Main Menu";
             // 
+            // btnInventory
+            // 
+            this.btnInventory.BackColor = System.Drawing.Color.Transparent;
+            this.btnInventory.BackgroundImage = global::Inventory_Manager.Properties.Resources.Button_14;
+            this.btnInventory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnInventory.FlatAppearance.BorderSize = 0;
+            this.btnInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInventory.Font = new System.Drawing.Font("Kristen ITC", 15F, System.Drawing.FontStyle.Bold);
+            this.btnInventory.ForeColor = System.Drawing.Color.White;
+            this.btnInventory.Location = new System.Drawing.Point(237, 227);
+            this.btnInventory.Margin = new System.Windows.Forms.Padding(5);
+            this.btnInventory.Name = "btnInventory";
+            this.btnInventory.Size = new System.Drawing.Size(200, 75);
+            this.btnInventory.TabIndex = 2;
+            this.btnInventory.Text = "Check Inventory";
+            this.btnInventory.UseVisualStyleBackColor = false;
+            this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
+            // 
             // frmMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 570);
+            this.Controls.Add(this.btnInventory);
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.gbxShipment);
             this.Controls.Add(this.gbxTracking);
@@ -305,6 +325,7 @@
         private System.Windows.Forms.GroupBox gbxTracking;
         private System.Windows.Forms.GroupBox gbxShipment;
         public System.Windows.Forms.Label lblHeader;
+        private System.Windows.Forms.Button btnInventory;
     }
 }
 
