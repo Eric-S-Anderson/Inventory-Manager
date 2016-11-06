@@ -8,20 +8,19 @@ namespace Inventory_Manager
     {
         public EventHandler DateChanged;
 
-        private MonthCalendar Calendar;
+        private IcarusCalendar Calendar;
 
         public DateTimePickerExtended()
         {
             InitializeComponent();
             Styler.styleCompundControl(this);
-            Calendar = new MonthCalendar();
+            Calendar = new IcarusCalendar(250, 250);
 
             Calendar.Parent = this;
-            Calendar.MaxSelectionCount = 1;
             Calendar.Hide();
 
             Calendar.DateSelected += Calendar_DateSelected;
-            Calendar.LostFocus += Calendar_LostFocus;
+            //Calendar.LostFocus += Calendar_LostFocus;
             btnPopup.Click += btnPopup_Click;
             btnClear.Click += btnClear_Click;
             Click += Calendar_LostFocus;
@@ -34,13 +33,14 @@ namespace Inventory_Manager
 
         private void txtDate_TextChanged(object sender, EventArgs e)
         {
-            DateChanged(sender, e);
+            DateChanged?.Invoke(this, e);
         }
 
-        private void Calendar_DateSelected(object sender, DateRangeEventArgs e)
+        private void Calendar_DateSelected(object sender, EventArgs e)
         {
             Calendar.Hide();
-            txtDate.Text = Calendar.SelectionRange.Start.ToLongDateString();
+            DateTime ControlDate = Calendar.SelectedDate;
+            txtDate.Text = ControlDate.ToLongDateString();
         }
 
         private void btnPopup_Click(object sender, EventArgs e)
@@ -77,7 +77,7 @@ namespace Inventory_Manager
 
         public void setBoldDates(List<DateTime> boldDates)
         {
-            Calendar.BoldedDates = boldDates.ToArray();
+            Calendar.HighlightedDates = boldDates;
         }
     }
 }

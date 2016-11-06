@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnMainMenu = new System.Windows.Forms.Button();
-            this.icarusCalendar1 = new Inventory_Manager.IcarusCalendar();
+            this.dateTimePickerExtended1 = new Inventory_Manager.DateTimePickerExtended();
             this.SuspendLayout();
             // 
             // btnMainMenu
@@ -44,30 +44,31 @@
             this.btnMainMenu.Text = "Main Menu";
             this.btnMainMenu.UseVisualStyleBackColor = true;
             // 
-            // icarusCalendar1
+            // dateTimePickerExtended1
             // 
-            this.icarusCalendar1.BackColor = System.Drawing.Color.Transparent;
-            this.icarusCalendar1.Location = new System.Drawing.Point(115, 57);
-            this.icarusCalendar1.Name = "icarusCalendar1";
-            this.icarusCalendar1.Size = new System.Drawing.Size(658, 600);
-            this.icarusCalendar1.TabIndex = 6;
+            this.dateTimePickerExtended1.AutoSize = true;
+            this.dateTimePickerExtended1.Location = new System.Drawing.Point(249, 285);
+            this.dateTimePickerExtended1.Name = "dateTimePickerExtended1";
+            this.dateTimePickerExtended1.Size = new System.Drawing.Size(430, 30);
+            this.dateTimePickerExtended1.TabIndex = 6;
             // 
             // frmInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1020, 685);
-            this.Controls.Add(this.icarusCalendar1);
+            this.Controls.Add(this.dateTimePickerExtended1);
             this.Controls.Add(this.btnMainMenu);
             this.Name = "frmInventory";
             this.Text = "Inventory";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         public System.Windows.Forms.Button btnMainMenu;
-        private IcarusCalendar icarusCalendar1;
+        private DateTimePickerExtended dateTimePickerExtended1;
     }
 }

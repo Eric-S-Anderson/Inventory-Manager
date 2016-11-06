@@ -346,6 +346,12 @@
     <Content Include="Resources\Buttons\Button_8.png" />
     <Content Include="Resources\Buttons\Button_9.png" />
     <Content Include="Resources\Buttons\Button_Cancel.ico" />
+    <Content Include="Resources\Buttons\Left.png" />
+    <Content Include="Resources\Buttons\LeftClick.png" />
+    <Content Include="Resources\Buttons\LeftHighlight.png" />
+    <Content Include="Resources\Buttons\Right.png" />
+    <Content Include="Resources\Buttons\RightClick.png" />
+    <Content Include="Resources\Buttons\RightHighlight.png" />
     <Content Include="Resources\Icons\Red_Icon.ico" />
     <Content Include="Resources\Images\Bar_Logo.jpg" />
     <Content Include="Resources\Images\Bar_Logo_Transparent.png" />
