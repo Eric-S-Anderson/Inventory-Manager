@@ -7,7 +7,7 @@ namespace Inventory_Manager
 {
     public partial class frmAddDOT : Form
     {
-        private static Form mainMenu;
+        private Form mainMenu;
         private DataTable trailerSet = new DataTable();
 
         public frmAddDOT(Form menuForm)
@@ -88,7 +88,7 @@ namespace Inventory_Manager
         private void btnMainMenu_Click(object sender, EventArgs e)
         {
             mainMenu.Show();
-            Hide();
+            Dispose();
         }
 
         private void frmAddDOT_FormClosed(object sender, FormClosedEventArgs e)

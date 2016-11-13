@@ -8,8 +8,8 @@ namespace Inventory_Manager
 {
     public partial class IcarusCalendar : UserControl
     {
-        //public new int Width = 200;
-        //public new int Height = 500;
+        public int MaxWidth = 350;
+        public int MaxHeight = 350;
         public Color BackgroundColor = Color.White;
         public Color TextColor = Color.Black;
         public Color BackgroundColorHighlighted = Color.Black;
@@ -26,10 +26,25 @@ namespace Inventory_Manager
         public EventHandler DateSelected;
 
         private DateTime CurrentDate = new DateTime();
+        private int MinWidth = 150;
+        private int MinHeight = 150;
 
-        public IcarusCalendar(int CalendarWidth = 500, int CalendarHeight = 500)
+        public IcarusCalendar(int CalendarWidth = 350, int CalendarHeight = 350)
         {
             InitializeComponent();
+
+            if (CalendarWidth > MaxWidth)
+                CalendarWidth = MaxWidth;
+
+            if (CalendarWidth < MinWidth)
+                CalendarWidth = MinWidth;
+
+            if (CalendarHeight > MaxHeight)
+                CalendarHeight = MaxHeight;
+
+            if (CalendarHeight < MinHeight)
+                CalendarHeight = MinHeight;
+
 
             Width = CalendarWidth;
             Height = CalendarHeight;
@@ -126,6 +141,7 @@ namespace Inventory_Manager
                 }
 
                 box.Margin = new Padding(0);
+                box.Font = new Font("Helvetica", (Height / 50) + 3);
             }
 
 
@@ -147,7 +163,7 @@ namespace Inventory_Manager
             MonthForward.Click += MonthForward_Click;
         }
 
-        private void populateDates()
+        public void populateDates()
         {
             DateTime LoopDay = new DateTime(CurrentDate.Year, CurrentDate.Month, 1);
             LoopDay = LoopDay.AddDays(-(int)LoopDay.DayOfWeek);

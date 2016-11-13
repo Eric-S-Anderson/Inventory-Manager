@@ -44,7 +44,6 @@
             this.lblBoxInfo = new System.Windows.Forms.Label();
             this.lblLocationInfo = new System.Windows.Forms.Label();
             this.lblEventName = new System.Windows.Forms.Label();
-            this.txtEventName = new System.Windows.Forms.TextBox();
             this.btnMainMenu = new System.Windows.Forms.Button();
             this.btnTrack = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
@@ -52,6 +51,7 @@
             this.cbxLocation = new System.Windows.Forms.ComboBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.dtpEventDate = new Inventory_Manager.DateTimePickerExtended();
+            this.cbxEvent = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvent)).BeginInit();
@@ -192,14 +192,6 @@
             this.lblEventName.Text = "Event Name:";
             this.lblEventName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtEventName
-            // 
-            this.txtEventName.Font = new System.Drawing.Font("Kristen ITC", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEventName.Location = new System.Drawing.Point(203, 509);
-            this.txtEventName.Name = "txtEventName";
-            this.txtEventName.Size = new System.Drawing.Size(352, 35);
-            this.txtEventName.TabIndex = 0;
-            // 
             // btnMainMenu
             // 
             this.btnMainMenu.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -271,11 +263,22 @@
             this.dtpEventDate.Size = new System.Drawing.Size(430, 30);
             this.dtpEventDate.TabIndex = 44;
             // 
+            // cbxEvent
+            // 
+            this.cbxEvent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxEvent.Font = new System.Drawing.Font("Kristen ITC", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxEvent.FormattingEnabled = true;
+            this.cbxEvent.Location = new System.Drawing.Point(203, 508);
+            this.cbxEvent.Name = "cbxEvent";
+            this.cbxEvent.Size = new System.Drawing.Size(430, 36);
+            this.cbxEvent.TabIndex = 45;
+            // 
             // frmTrackEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(793, 674);
+            this.Controls.Add(this.cbxEvent);
             this.Controls.Add(this.dtpEventDate);
             this.Controls.Add(this.cbxLocation);
             this.Controls.Add(this.dgvLocation);
@@ -288,7 +291,6 @@
             this.Controls.Add(this.lblBoxInfo);
             this.Controls.Add(this.lblLocationInfo);
             this.Controls.Add(this.lblEventName);
-            this.Controls.Add(this.txtEventName);
             this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnTrack);
@@ -318,7 +320,6 @@
         public System.Windows.Forms.Label lblBoxInfo;
         public System.Windows.Forms.Label lblLocationInfo;
         public System.Windows.Forms.Label lblEventName;
-        public System.Windows.Forms.TextBox txtEventName;
         public System.Windows.Forms.Button btnMainMenu;
         public System.Windows.Forms.Button btnTrack;
         public System.Windows.Forms.Button btnPrint;
@@ -326,5 +327,6 @@
         private System.Windows.Forms.ComboBox cbxLocation;
         public System.Windows.Forms.Button btnClear;
         private DateTimePickerExtended dtpEventDate;
+        private System.Windows.Forms.ComboBox cbxEvent;
     }
 }

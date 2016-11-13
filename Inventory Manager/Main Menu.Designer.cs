@@ -54,9 +54,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Inventory_Manager.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(490, 89);
+            this.pictureBox1.Location = new System.Drawing.Point(454, 89);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(315, 176);
+            this.pictureBox1.Size = new System.Drawing.Size(202, 111);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -70,7 +70,7 @@
             this.btnExitApplication.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExitApplication.Font = new System.Drawing.Font("Kristen ITC", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExitApplication.ForeColor = System.Drawing.Color.White;
-            this.btnExitApplication.Location = new System.Drawing.Point(605, 461);
+            this.btnExitApplication.Location = new System.Drawing.Point(445, 461);
             this.btnExitApplication.Margin = new System.Windows.Forms.Padding(5);
             this.btnExitApplication.Name = "btnExitApplication";
             this.btnExitApplication.Size = new System.Drawing.Size(200, 75);
@@ -203,7 +203,7 @@
             // 
             this.gbxPrinting.Controls.Add(this.btnPrintEvent);
             this.gbxPrinting.Controls.Add(this.btnPrintShipment);
-            this.gbxPrinting.Location = new System.Drawing.Point(19, 440);
+            this.gbxPrinting.Location = new System.Drawing.Point(19, 206);
             this.gbxPrinting.Name = "gbxPrinting";
             this.gbxPrinting.Size = new System.Drawing.Size(426, 111);
             this.gbxPrinting.TabIndex = 3;
@@ -230,11 +230,12 @@
             // 
             // gbxTracking
             // 
+            this.gbxTracking.Controls.Add(this.btnInventory);
             this.gbxTracking.Controls.Add(this.btnTrackEvent);
             this.gbxTracking.Controls.Add(this.btnTrackItem);
             this.gbxTracking.Location = new System.Drawing.Point(19, 323);
             this.gbxTracking.Name = "gbxTracking";
-            this.gbxTracking.Size = new System.Drawing.Size(426, 111);
+            this.gbxTracking.Size = new System.Drawing.Size(634, 111);
             this.gbxTracking.TabIndex = 4;
             this.gbxTracking.TabStop = false;
             this.gbxTracking.Text = "Tracking";
@@ -242,7 +243,7 @@
             // gbxShipment
             // 
             this.gbxShipment.Controls.Add(this.btnAddShipment);
-            this.gbxShipment.Location = new System.Drawing.Point(19, 206);
+            this.gbxShipment.Location = new System.Drawing.Point(19, 440);
             this.gbxShipment.Name = "gbxShipment";
             this.gbxShipment.Size = new System.Drawing.Size(218, 111);
             this.gbxShipment.TabIndex = 5;
@@ -253,7 +254,7 @@
             // 
             this.lblHeader.AutoSize = true;
             this.lblHeader.Font = new System.Drawing.Font("Kristen ITC", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.Location = new System.Drawing.Point(343, 42);
+            this.lblHeader.Location = new System.Drawing.Point(271, 42);
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(125, 28);
             this.lblHeader.TabIndex = 12;
@@ -268,7 +269,7 @@
             this.btnInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInventory.Font = new System.Drawing.Font("Kristen ITC", 15F, System.Drawing.FontStyle.Bold);
             this.btnInventory.ForeColor = System.Drawing.Color.White;
-            this.btnInventory.Location = new System.Drawing.Point(237, 227);
+            this.btnInventory.Location = new System.Drawing.Point(426, 21);
             this.btnInventory.Margin = new System.Windows.Forms.Padding(5);
             this.btnInventory.Name = "btnInventory";
             this.btnInventory.Size = new System.Drawing.Size(200, 75);
@@ -281,8 +282,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 570);
-            this.Controls.Add(this.btnInventory);
+            this.ClientSize = new System.Drawing.Size(668, 570);
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.gbxShipment);
             this.Controls.Add(this.gbxTracking);

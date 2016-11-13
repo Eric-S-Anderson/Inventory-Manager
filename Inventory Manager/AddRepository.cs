@@ -7,7 +7,7 @@ namespace Inventory_Manager
 {
     public partial class frmAddRepository : Form
     {
-        private static Form mainMenu;
+        private Form mainMenu;
         private DataTable stateSet = new DataTable();
         private string defaultState = "MI";
         private DataTable countrySet = new DataTable();
@@ -135,7 +135,7 @@ namespace Inventory_Manager
                 shipmentForm.populateRepositories();
             }
             mainMenu.Show();
-            Hide();
+            Dispose();
         }
 
         private void frmAddEventLocation_FormClosed(object sender, FormClosedEventArgs e)

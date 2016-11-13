@@ -7,7 +7,7 @@ namespace Inventory_Manager
 {
     public partial class frmAddEventLocation : Form
     {
-        private static Form mainMenu;
+        private Form mainMenu;
         private DataTable stateSet = new DataTable();
         private string defaultState = "MI";
 
@@ -105,7 +105,7 @@ namespace Inventory_Manager
             }
 
             mainMenu.Show();
-            Hide();
+            Dispose();
         }
 
         private void frmAddEventLocation_FormClosed(object sender, FormClosedEventArgs e)

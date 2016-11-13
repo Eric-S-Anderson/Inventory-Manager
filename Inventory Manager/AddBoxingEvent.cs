@@ -10,7 +10,7 @@ namespace Inventory_Manager
 
     public partial class frmAddBoxingEvent : Form
     {
-        private static Form mainMenu;
+        private Form mainMenu;
         private DataTable trailerSet = new DataTable();
         private DataTable locationSet = new DataTable();
         private int riceCount = 0;
@@ -371,7 +371,7 @@ namespace Inventory_Manager
         private void btnMainMenu_Click(object sender, EventArgs e)
         {
             mainMenu.Show();
-            Hide();
+            Dispose();
         }
 
         private void frmAddBoxingEvent_FormClosed(object sender, FormClosedEventArgs e)

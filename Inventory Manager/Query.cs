@@ -6,7 +6,7 @@ namespace Inventory_Manager
 {
     public partial class frmQuery : Form
     {
-        private static Form mainMenu;
+        private Form mainMenu;
         private DataTable resultSet;
         private int resultInt;
 
@@ -44,7 +44,7 @@ namespace Inventory_Manager
         private void btnMainMenu_Click(object sender, EventArgs e)
         {
             mainMenu.Show();
-            Hide();
+            Dispose();
         }
 
         private void frmQuery_FormClosed(object sender, FormClosedEventArgs e)

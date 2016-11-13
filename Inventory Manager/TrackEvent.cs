@@ -8,9 +8,10 @@ namespace Inventory_Manager
 {
     public partial class frmTrackEvent : Form
     {
-        private static Form mainMenu;
+        private Form mainMenu;
         private DataSet resultSet;
         private DataTable locationSet = new DataTable();
+        private DataTable eventSet = new DataTable();
         private string printFileName = DBLink.appDataDirectory + "EventTrack.html";
 
         public frmTrackEvent(Form menuForm)
@@ -38,12 +39,39 @@ namespace Inventory_Manager
             dtpEventDate.setBoldDates(boldDates);
 
             populateLocations();
+            populateEvents();
+            cbxEvent.SelectedIndex = -1;
             clearFields();
+        }
+
+        private void populateEvents()
+        {
+            Param eventDate = new Param();
+
+            if (dtpEventDate.getDate() == DateTime.MinValue)
+            {
+                eventDate = new Param("@Event_Date", true);
+            }
+            else
+            {
+                eventDate = new Param("@Event_Date", dtpEventDate.getDate(), typeof(DateTime));
+            }
+
+            eventSet = DBLink.getProcedure("Get_Events", new List<Param>(new[] { eventDate }));
+
+            cbxEvent.DataSource = eventSet;
+            cbxEvent.DisplayMember = eventSet.Columns[1].ColumnName;
+
+            if (cbxEvent.Items.Count > 0)
+            {
+                cbxEvent.SelectedIndex = 0;
+            }
         }
 
         private void dtpeDate_DateChanged(object sender, EventArgs e)
         {
-
+            populateEvents();
+            cbxEvent.SelectedIndex = -1;
         }
 
         private int getSelectedLocationId()
@@ -105,13 +133,13 @@ namespace Inventory_Manager
             Param eventDate = new Param();
             Param locationId = new Param();
 
-            if (txtEventName.Text == "")
+            if (cbxEvent.Text == "")
             {
                 eventName = new Param("@Event_Name", true);
             }
             else
             {
-                eventName = new Param("@Event_Name", txtEventName.Text, typeof(string));
+                eventName = new Param("@Event_Name", cbxEvent.Text, typeof(string));
             }
 
             if (dtpEventDate.getDate() == DateTime.MinValue)
@@ -141,7 +169,7 @@ namespace Inventory_Manager
             else
             {
                 MessageBox.Show("No data found.", DBLink.applicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtEventName.Focus();
+                cbxEvent.Focus();
             }
         }
 
@@ -159,9 +187,9 @@ namespace Inventory_Manager
 
         private void clearFields()
         {
-            txtEventName.Text = "";
+            cbxEvent.Text = "";
             cbxLocation.SelectedIndex = -1;
-            txtEventName.Focus();
+            cbxEvent.Focus();
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -270,7 +298,7 @@ namespace Inventory_Manager
         private void btnMainMenu_Click(object sender, EventArgs e)
         {
             mainMenu.Show();
-            Hide();
+            Dispose();
         }
 
         private void frmTrackEvent_FormClosed(object sender, FormClosedEventArgs e)

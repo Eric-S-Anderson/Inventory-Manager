@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace Inventory_Manager
 {
     public partial class frmInventory : Form
     {
-        private static Form mainMenu;
+        private Form mainMenu;
+        private DataTable boxSet = new DataTable();
+
         public frmInventory(Form menuForm)
         {
             InitializeComponent();
@@ -15,13 +18,21 @@ namespace Inventory_Manager
 
             btnMainMenu.MouseClick += btnMainMenu_Click;
             FormClosed += frmAddBoxingEvent_FormClosed;
+
+            populateBoxes();
         }
 
+        private void populateBoxes()
+        {
+            boxSet = DBLink.getProcedure("Get_Inventory");
+
+            dgvBoxes.DataSource = boxSet;
+        }
 
         private void btnMainMenu_Click(object sender, EventArgs e)
         {
             mainMenu.Show();
-            Hide();
+            Dispose();
         }
 
         private void frmAddBoxingEvent_FormClosed(object sender, FormClosedEventArgs e)

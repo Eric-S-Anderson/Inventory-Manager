@@ -7,7 +7,7 @@ namespace Inventory_Manager
 {
     public partial class frmEditDatabase : Form
     {
-        private static Form mainMenu;
+        private Form mainMenu;
         private DataTable tableSet = new DataTable();
         private DataTable currentTable = new DataTable();
         private SqlDataAdapter adapter = new SqlDataAdapter();
@@ -100,7 +100,7 @@ namespace Inventory_Manager
         {
             databaseConnection.Close();
             mainMenu.Show();
-            Hide();
+            Dispose();
         }
 
         private void frmAddBoxingEvent_FormClosed(object sender, FormClosedEventArgs e)

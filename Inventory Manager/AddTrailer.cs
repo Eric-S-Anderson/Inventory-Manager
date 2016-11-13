@@ -6,7 +6,7 @@ namespace Inventory_Manager
 {
     public partial class frmAddTrailer : Form
     {
-        private static Form mainMenu;
+        private Form mainMenu;
 
         public frmAddTrailer(Form menuForm)
         {
@@ -67,7 +67,7 @@ namespace Inventory_Manager
             }
 
             mainMenu.Show();
-            Hide();
+            Dispose();
         }
 
         private void frmAddTrailer_FormClosed(object sender, FormClosedEventArgs e)

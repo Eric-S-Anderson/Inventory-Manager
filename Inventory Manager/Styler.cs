@@ -19,6 +19,7 @@ namespace Inventory_Manager
         public static void stylePage(Form styleForm)
         {
             formBuffer = styleForm;
+            formBuffer.AutoScroll = true;
             formBuffer.Icon = Icon.ExtractAssociatedIcon(Assembly.GetExecutingAssembly().Location);
             if (!(formBuffer is frmAbout) && !(formBuffer is frmDBCon) && !(formBuffer is frmPrintEvent) && !(formBuffer is frmPrintShipment))
             {
@@ -185,6 +186,7 @@ namespace Inventory_Manager
             ToolStripMenuItem mspDropLevelTracking = new ToolStripMenuItem("Tracking");
             mspDropLevelTracking.DropDownItems.Add("Track Events", null, btnTrackEvent_Click);
             mspDropLevelTracking.DropDownItems.Add("Track Items", null, btnTrackItem_Click);
+            mspDropLevelTracking.DropDownItems.Add("Track Inventory", null, btnInventory_Click);
 
             mspMidLevelActions.DropDownItems.Add(mspDropLevelEvents);
             mspMidLevelActions.DropDownItems.Add(mspDropLevelShipments);
@@ -423,64 +425,101 @@ namespace Inventory_Manager
         private static void btnAddEventLocation_Click(object sender, EventArgs e)
         {
             Form currentForm = getFormFromMenuItem(sender);
-            new frmAddEventLocation(currentForm).Show();
-            currentForm.Hide();
+            if (!(currentForm is frmAddEventLocation))
+            {
+                new frmAddEventLocation(currentForm).Show();
+                currentForm.Hide();
+            }
         }
 
         private static void btnAddRepository_Click(object sender, EventArgs e)
         {
             Form currentForm = getFormFromMenuItem(sender);
-            new frmAddRepository(currentForm).Show();
-            currentForm.Hide();
+            if (!(currentForm is frmAddRepository))
+            {
+                new frmAddRepository(currentForm).Show();
+                currentForm.Hide();
+            }
         }
 
         private static void btnAddTrailer_Click(object sender, EventArgs e)
         {
             Form currentForm = getFormFromMenuItem(sender);
-            new frmAddTrailer(currentForm).Show();
-            currentForm.Hide();
+            if (!(currentForm is frmAddTrailer))
+            {
+                new frmAddTrailer(currentForm).Show();
+                currentForm.Hide();
+            }
         }
 
         private static void btnAddDOT_Click(object sender, EventArgs e)
         {
             Form currentForm = getFormFromMenuItem(sender);
-            new frmAddDOT(currentForm).Show();
-            currentForm.Hide();
+            if (!(currentForm is frmAddDOT))
+            {
+                new frmAddDOT(currentForm).Show();
+                currentForm.Hide();
+            }
         }
 
         private static void btnAddBoxingEvent_Click(object sender, EventArgs e)
         {
             Form currentForm = getFormFromMenuItem(sender);
-            new frmAddBoxingEvent(currentForm).Show();
-            currentForm.Hide();
+            if (!(currentForm is frmAddBoxingEvent))
+            {
+                new frmAddBoxingEvent(currentForm).Show();
+                currentForm.Hide();
+            }
         }
 
         private static void btnCheckInEvent_Click(object sender, EventArgs e)
         {
             Form currentForm = getFormFromMenuItem(sender);
-            new frmCheckInEvent(currentForm).Show();
-            currentForm.Hide();
+            if (!(currentForm is frmCheckInEvent))
+            {
+                new frmCheckInEvent(currentForm).Show();
+                currentForm.Hide();
+            }
         }
 
         private static void btnAddShipment_Click(object sender, EventArgs e)
         {
             Form currentForm = getFormFromMenuItem(sender);
-            new frmAddShipment(currentForm).Show();
-            currentForm.Hide();
+            if (!(currentForm is frmAddShipment))
+            {
+                new frmAddShipment(currentForm).Show();
+                currentForm.Hide();
+            }
         }
 
         private static void btnTrackItem_Click(object sender, EventArgs e)
         {
             Form currentForm = getFormFromMenuItem(sender);
-            new frmTrackFood(currentForm).Show();
-            currentForm.Hide();
+            if (!(currentForm is frmTrackFood))
+            {
+                new frmTrackFood(currentForm).Show();
+                currentForm.Hide();
+            }
         }
 
         private static void btnTrackEvent_Click(object sender, EventArgs e)
         {
             Form currentForm = getFormFromMenuItem(sender);
-            new frmTrackEvent(currentForm).Show();
-            currentForm.Hide();
+            if (!(currentForm is frmTrackEvent))
+            {
+                new frmTrackEvent(currentForm).Show();
+                currentForm.Hide();
+            }
+        }
+
+        private static void btnInventory_Click(object sender, EventArgs e)
+        {
+            Form currentForm = getFormFromMenuItem(sender);
+            if (!(currentForm is frmInventory))
+            {
+                new frmInventory(currentForm).Show();
+                currentForm.Hide();
+            }
         }
 
         private static void btnConnection_Click(object sender, EventArgs e)
@@ -585,15 +624,21 @@ namespace Inventory_Manager
         private static void btnManualQuery_Click(object sender, EventArgs e)
         {
             Form currentForm = getFormFromMenuItem(sender);
-            new frmQuery(currentForm).Show();
-            currentForm.Hide();
+            if (!(currentForm is frmQuery))
+            {
+                new frmQuery(currentForm).Show();
+                currentForm.Hide();
+            }
         }
 
         private static void btnEditDatabase_Click(object sender, EventArgs e)
         {
             Form currentForm = getFormFromMenuItem(sender);
-            new frmEditDatabase(currentForm).Show();
-            currentForm.Hide();
+            if (!(currentForm is frmEditDatabase))
+            {
+                new frmEditDatabase(currentForm).Show();
+                currentForm.Hide();
+            }
         }
 
         private static void btnFont_Click(object sender, EventArgs e)

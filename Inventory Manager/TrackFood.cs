@@ -8,7 +8,7 @@ namespace Inventory_Manager
 {
     public partial class frmTrackFood : Form
     {
-        private static Form mainMenu;
+        private Form mainMenu;
         private DataSet resultSet;
         private string typeSelected = "";
         private string printFileName = DBLink.appDataDirectory + "FoodTrack.html";
@@ -293,7 +293,7 @@ namespace Inventory_Manager
         private void btnMainMenu_Click(object sender, EventArgs e)
         {
             mainMenu.Show();
-            Hide();
+            Dispose();
         }
 
         private void frmTrackFood_FormClosed(object sender, FormClosedEventArgs e)

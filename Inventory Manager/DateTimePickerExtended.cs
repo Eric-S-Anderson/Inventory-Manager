@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Inventory_Manager
@@ -9,26 +10,42 @@ namespace Inventory_Manager
         public EventHandler DateChanged;
 
         private IcarusCalendar Calendar;
+        private List<DateTime> DateListHolder = null;
 
         public DateTimePickerExtended()
         {
             InitializeComponent();
             Styler.styleCompundControl(this);
-            Calendar = new IcarusCalendar(250, 250);
-
-            Calendar.Parent = this;
-            Calendar.Hide();
-
-            Calendar.DateSelected += Calendar_DateSelected;
-            //Calendar.LostFocus += Calendar_LostFocus;
+            
             btnPopup.Click += btnPopup_Click;
             btnClear.Click += btnClear_Click;
-            Click += Calendar_LostFocus;
+            
             txtDate.TextChanged += txtDate_TextChanged;
 
             btnClear.Height = txtDate.Height;
             btnPopup.Height = txtDate.Height;
            
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            int length = Parent.ClientRectangle.Height - Top;
+            Calendar = new IcarusCalendar(length, length);
+
+            Calendar.Parent = this;
+            Calendar.Hide();
+
+            Calendar.DateSelected += Calendar_DateSelected;
+            Click += Calendar_LostFocus;
+
+            if (DateListHolder != null)
+            {
+                Calendar.HighlightedDates = DateListHolder;
+            }
+
+            Calendar.populateDates();
+
+            base.OnLoad(e);
         }
 
         private void txtDate_TextChanged(object sender, EventArgs e)
@@ -45,17 +62,30 @@ namespace Inventory_Manager
 
         private void btnPopup_Click(object sender, EventArgs e)
         {
-            
-            ParentForm.Controls.Add(Calendar);
-            Calendar.Show();
-            Calendar.BringToFront();
-            Calendar.Location = new System.Drawing.Point(Left + txtDate.Right - Calendar.Width, Top);
-            Calendar.Focus();
+            if (Calendar.Visible)
+            {
+                Calendar.Hide();
+            }
+            else
+            {
+                ParentForm.Controls.Add(Calendar);
+                Calendar.Show();
+                Calendar.BringToFront();
+                Calendar.Location = new System.Drawing.Point(Left + txtDate.Right - Calendar.Width, Top);
+                Calendar.Focus();
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtDate.Text = "";
+            if (Calendar.Visible)
+            {
+                Calendar.Hide();
+            }
+            else
+            {
+                txtDate.Text = "";
+            }
         }
 
         private void Calendar_LostFocus(object sender, EventArgs e)
@@ -77,7 +107,8 @@ namespace Inventory_Manager
 
         public void setBoldDates(List<DateTime> boldDates)
         {
-            Calendar.HighlightedDates = boldDates;
+            DateListHolder = boldDates;
         }
+
     }
 }

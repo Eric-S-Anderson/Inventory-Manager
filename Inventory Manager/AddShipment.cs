@@ -9,7 +9,7 @@ namespace Inventory_Manager
 {
     public partial class frmAddShipment : Form
     {
-        private static Form mainMenu;
+        private Form mainMenu;
         private DataTable repositorySet = new DataTable();
         private int lineBoxCounter = 0;
 
@@ -175,7 +175,7 @@ namespace Inventory_Manager
         private void btnMainMenu_Click(object sender, EventArgs e)
         {
             mainMenu.Show();
-            Hide();
+            Dispose();
         }
 
         private void frmAddShipment_FormClosed(object sender, FormClosedEventArgs e)
