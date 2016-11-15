@@ -1,0 +1,479 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Inventory Manager.exe" version="1.0.0.1" publicKeyToken="92522986e7c82ecd" language="en-US" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="KAHCIcon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Inventory Manager" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Inventory Manager.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet version="1" class="System.Security.NamedPermissionSet" Name="LocalIntranet" Description="Default rights given to applications on the local intranet" Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!-- UAC Manifest Options
+             If you want to change the Windows User Account Control level replace the 
+             requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+            Specifying requestedExecutionLevel element will disable file and registry virtualization. 
+            Remove this element if your application requires this virtualization for backwards
+            compatibility.
+        -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Inventory Manager.exe" size="3098592">
+      <assemblyIdentity name="Inventory Manager" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>bRTq5w1qQ8wxdNvpNIAmjeBGAL6CfiikBrKgCBSZ2pA=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Data.mdf" size="3342336" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>c3TISdU8B5xeMVt/UJ2SFy7ev4Iqr6WKJKPOS0kAGnk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Data_log.ldf" size="573440" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Dt9SIr3HyfkvKXRmSF43Td/wM2NtP4506+KDUcOF0SE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Green_Transparent.ico" size="72398">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>UQpI0ngmzcryZTmvtfCs70ns6LEQGdU4f/txTYF/oSc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Inventory Manager.exe.config" size="189">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>6N7MliNbVJSIAIPrecIshMbZ7zEoKLr5SQvud4LDUOw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="KAHCIcon.ico" size="163178">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>DrEkG94VFAr0Gi5bFxWDuTFkac6vDr/WyqMugsZU5OA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Buttons\Button_1.png" size="6794">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ewGYljD11XhpSydsD+hY0O/GS4VPPpLQqXbZyQmzU8g=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Buttons\Button_10.png" size="6796">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>qxWw38BeBZ1OebiskrigKAeeGHoNc/N4XP8BYeN/2Qg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Buttons\Button_11.png" size="5993">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>O57fikPzVc1Trd3tpgETvPls5wle0t+E7aiCBrKrGFY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Buttons\Button_12.png" size="5922">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>DzHyp5S2NeYZHUEH0Sh+gk3nvkRfOQba8IldcxTl1EI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Buttons\Button_13.png" size="6167">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>gfRY6RUvwsBZXuzDrbeBhbIFm3866ih56Pt3NKYybbE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Buttons\Button_14.png" size="6349">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>PwxOBxbqUAQPYjaHbXLrCANUPJFZtCq4U173u6Ygd9Q=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Buttons\Button_15.png" size="6152">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>6HzfR7eG9pfBYzqq1vhgdqThpD/BpGUtp1pgh1rT5Lk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Buttons\Button_2.png" size="5577">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>XK7q8ztFtZWuBHL5du7O8cILUROcbPsblM8VKhWC2HI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Buttons\Button_3.png" size="6562">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>SCYJMIfJ5cK99qn7bLhYGRkFI/d0fG/MWZ7CAKmqksk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Buttons\Button_4.png" size="6618">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>rfpVjB6O7gZ5CTnkiFwV/gm0aqFVPVbpMmR1MYsB70E=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Buttons\Button_5.png" size="6493">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>U8Uv55xYSuMX2VjwdvQl8EvfTUi2Mc5wpeNj/pnDs2c=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Buttons\Button_6.png" size="6700">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Qhm/oK6xzIM46ONca2GJuzHQQTYy75Akag4uX8Rk4Bc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Buttons\Button_7.png" size="6730">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>pIm53N+3dazTW2/OSEeoIj02DaFj5Q04vrF1tSDMVgs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Buttons\Button_8.png" size="6607">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>u5C44V4JL4SrTYr/s4cUZu9fbv25CDRLOHw04HHPtpQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Buttons\Button_9.png" size="6628">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>j0FYdf/zpUcC0yzPuUovN3HxcLYAvmmNGygvJ96LoLI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Buttons\Button_Cancel.ico" size="142020">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>NIrGd14PlzWziIG3LWTOyt35Ov22QNzlQiau29YVSFM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Buttons\Left.png" size="1082">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>w+j3PE70qlLmHjNWCJPs5SycrQlP1ZhZCg6XGyvlJOM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Buttons\LeftClick.png" size="4062">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>6YospSZK1O1y6mOLymuxOXEbhVdLBYi/5XliDmgA/PU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Buttons\LeftHighlight.png" size="3345">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>XtKUHBpXk154ZLWCXJJRRZjyZg4Ta/rOlexVnsl/Kpw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Buttons\Right.png" size="1087">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>JlQQao564lK7UOS9Ds9KTB/w2s22dr4aKzf8fbqgz1A=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Buttons\RightClick.png" size="4024">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>I6qF2AawqqDDXYJ8pfpQBQykgnT5BCibQig8tAj515c=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Buttons\RightHighlight.png" size="3269">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xdSNODJEe/41H475JhxS/L0E5aEqMP9r6aWqTP9xZes=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Icons\Red_Icon.ico" size="112975">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>KJTfJFTb537B0kYg2xZweV4nmhPXYXyz7bI3V8h4r8k=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Images\Bar_Logo.jpg" size="93176">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ias1ZiTpTbE2skJAuGThdjeEMx+8BL+xrJjDFV46SG0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Images\Bar_Logo_Transparent.png" size="85508">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xy7u6wbp/iuVXqbrh8m3dpWKgRMJhiFyRWRRH9iabds=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Images\Blue_Transparent.png" size="24511">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>HeeoBeWIY2WDZLCKSTAX+ecf2Cp4vZWKRlgmK9BgrE4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Images\Blue_White.png" size="21978">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>r1DpMCUbS/5Cl+N05bDUfi7MydxK0uOlrX+W+fb02GM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Images\Green_Transparent.png" size="23049">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>BRSlL3i03W6YW12zLTfU4ML2xMH8mPwIpL0nBwwlMVc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Images\Green_White.png" size="20274">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>tP06z5PmSrZ+OyP/tBlVKRmtgqDv5vcH7nv+H7CYgzg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Images\Hands_Logo.jpg" size="90824">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>t7nD/+KUnbChCvCkOB92ULyfpm5dwDhSrozOLH63lD8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Images\Plain_Logo.jpg" size="28644">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>A/95stMH0GjcGX6zDwvRCrxohkkR7kpnC7LrAWkIbSg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Images\Plain_Logo_Subtitled.jpg" size="64123">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>fRnsVsjfygdQOjrjTaWxc7u/yMJMsywBy5LRRdfn6NU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Images\Purple_Transparent.png" size="24154">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>sIfAqGJPcOQBhCw4wN4plIIMHcyO2qrpVU0yhncPzcs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Images\Purple_White.png" size="21566">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>U6CblKmtdL7WV4CjnRT8fCNxUZ2pgDZdHH/LpysJ2Pg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Images\Red_Transparent.png" size="23800">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>PJvIHhxiBaGoluku9jZvObTjFpsF3BFJV60II2oK/d8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Images\Red_White.png" size="21232">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>7j8eggzCXMR0fWa18SZIg8dxxiL0FINPPpr49uTS9HM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Images\World_Logo.jpg" size="53284">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>1w3IOi8nDYv2HEw0iqS1GDpU8LbDhgH8ofJAqx6uMCc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Images\World_Logo_Transparent.png" size="254132">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ETlGtMmQioTBujWwWeEj930DzfBYNoYxCKVhVAaeG/A=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Images\Yellow_Transparent.png" size="23178">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>iXV7NOO+iGV6ZD9AdPR7eE1LxDP4vxFHDzZhY+y16Jg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Images\Yellow_White.png" size="19424">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xg+kWBYkt+6n0ThDmB4rlF95EYgpohvQu51XBZn+FR0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <!-- A list of the Windows versions that this application has been tested on and is
+           is designed to work with. Uncomment the appropriate elements and Windows will 
+           automatically selected the most compatible environment. -->
+      <!-- Windows Vista -->
+      <!--<supportedOS Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}" />-->
+      <!-- Windows 7 -->
+      <!--<supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}" />-->
+      <!-- Windows 8 -->
+      <!--<supportedOS Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}" />-->
+      <!-- Windows 8.1 -->
+      <!--<supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}" />-->
+      <!-- Windows 10 -->
+      <!--<supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />-->
+    </application>
+  </compatibility>
+<publisherIdentity name="CN=DESKTOP-GLAD058\codep" issuerKeyHash="7aec5fd59ea07e157c9bcb337f7aace8fa676fbc" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>vhs3qg4/XOxewfb11WXt/lvKLj7NYx0jIwkZpAuq8nc=</DigestValue></Reference></SignedInfo><SignatureValue>a5Ch+bnxuYmnW2MppRdc5N392LttMDo6pMyGv9xJulRAJK5KZrb2uyaPzFQhiCm7FOrQliSpObJJUB4TsTfwzYnwyjXobh83DCYYvcqFIxgRBx7OUkzH2YVKHa6kZGBqsl1vSXkhAizr2WxTJnQ4swzbcZLh0tK8C1Jls8EoHU0=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>1MYTdKxTBuoxHEKeCNPABoaspc3X9c1cJYFXb9Vz39nkX0be+zdW8c9kUcrDsjOf0JYHa2Ii3mD0DqvIOZ9766BpjxC659RpFNjCYRAi1dHezeKO7yhvYBMoAlEBXPMbswd00t8Z6na2PE+zD9i7MDTXX9DS2R42IYnz14ckTZs=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="77f2aa0ba4190923231d63cd3e2eca5bfeed65d5f5f6c15eec5c3f0eaa371bbe" Description="" Url=""><as:assemblyIdentity name="Inventory Manager.exe" version="1.0.0.1" publicKeyToken="92522986e7c82ecd" language="en-US" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-GLAD058\codep</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>HCjFXXFPG3BqMLk51azetIppyESYvx96kFN2EN67yqQ=</DigestValue></Reference></SignedInfo><SignatureValue>GuRQBpt9yhqQwrOL9pFIEoIV+lSBnIyLusfacvodfFmrGZhJDoF/5c3dZhbDvMWAvHNFNIAaIuJFZyJRmfKnIoNvPhwVwkJ/ngHmc/wN6eMScoDRjSroqMsmMNUtiYnKG9q1WdtMyD7sFtUQq72gDQt1BgNiZaVPvgoAkvjvs+o=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>1MYTdKxTBuoxHEKeCNPABoaspc3X9c1cJYFXb9Vz39nkX0be+zdW8c9kUcrDsjOf0JYHa2Ii3mD0DqvIOZ9766BpjxC659RpFNjCYRAi1dHezeKO7yhvYBMoAlEBXPMbswd00t8Z6na2PE+zD9i7MDTXX9DS2R42IYnz14ckTZs=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB7TCCAVagAwIBAgIQdghofgZ/OYhCFQkxwXVk0TANBgkqhkiG9w0BAQsFADA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtAEcATABBAEQAMAA1ADgAXABjAG8AZABlAHAwHhcNMTYxMTE1MDIyODUwWhcNMTcxMTE1MDgyODUwWjA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtAEcATABBAEQAMAA1ADgAXABjAG8AZABlAHAwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBANTGE3SsUwbqMRxCngjTwAaGrKXN1/XNXCWBV2/Vc9/Z5F9G3vs3VvHPZFHKw7Izn9CWB2tiIt5g9A6ryDmfe+ugaY8QuufUaRTYwmEQItXR3s3iju8ob2ATKAJRAVzzG7MHdNLfGep2tjxPsw/YuzA011/Q0tkeNiGJ89eHJE2bAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAKfhBXRuiDqxCBJ4qEFbnpLN01F/0LODpkonz2kO1VXnM+84DOCZQ9rtbs9YwIGs9QU0h3ktiDSTkpWMd4eeXxbBK1NStryMtnaS/dHHnq7ojk68NAz1DCMf+EG1J6MGT07fcORjhbsJ3Vg+/hpO23rrk0pbiVQbkgMYQiFXs6JM=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
